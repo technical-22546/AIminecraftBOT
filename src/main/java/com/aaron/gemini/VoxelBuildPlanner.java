@@ -32,6 +32,7 @@ final class VoxelBuildPlanner {
 	private static final int MAX_SITE_SCAN_UP = 6;
 	private static final int MAX_SITE_SCAN_HEIGHT = 6;
 	private static final int MAX_AUTO_FOUNDATION_COLUMNS = 24;
+	private static final int MAX_AUTO_FIX_SHIFT = 3;
 	private static final String DEFAULT_FOUNDATION_BLOCK = "minecraft:stone_bricks";
 
 	private VoxelBuildPlanner() {
@@ -1421,31 +1422,27 @@ final class VoxelBuildPlanner {
 		if (plan == null || issues == null || issues.isEmpty()) {
 			return null;
 		}
-		Map<String, Integer> deltasByName = new LinkedHashMap<>();
-		for (SupportIssue issue : issues) {
-			if (issue == null || issue.cuboid() == null || issue.cuboid().isBlank() || issue.gapBelow() <= 0) {
-				continue;
-			}
-			deltasByName.put(issue.cuboid(), -issue.gapBelow());
-		}
-		if (deltasByName.isEmpty()) {
-			return null;
-		}
-		ShiftResult result = shiftPlanForIssuesRecursive(plan, deltasByName, repairs);
+		ShiftResult result = shiftPlanForIssuesRecursive(plan, issues, repairs);
 		return result.changed() ? result.plan() : null;
 	}
 
-	private static ShiftResult shiftPlanForIssuesRecursive(BuildPlan plan, Map<String, Integer> deltasByName, List<String> repairs) {
+	private static ShiftResult shiftPlanForIssuesRecursive(BuildPlan plan, List<SupportIssue> issues, List<String> repairs) {
 		List<Integer> directDeltas = new ArrayList<>();
+		Map<String, SupportIssue> issuesByName = new LinkedHashMap<>();
+		for (SupportIssue issue : issues) {
+			if (issue != null && issue.cuboid() != null && !issue.cuboid().isBlank()) {
+				issuesByName.put(issue.cuboid(), issue);
+			}
+		}
 		for (Cuboid cuboid : plan.cuboids()) {
-			Integer delta = deltasByName.get(cuboid.name());
-			if (delta != null && delta != 0) {
+			Integer delta = safeAutoFixDelta(issuesByName.get(cuboid.name()), Math.min(cuboid.from().y(), cuboid.to().y()));
+			if (delta != null) {
 				directDeltas.add(delta);
 			}
 		}
 		for (BlockPlacement block : plan.blocks()) {
-			Integer delta = deltasByName.get(block.name());
-			if (delta != null && delta != 0) {
+			Integer delta = safeAutoFixDelta(issuesByName.get(block.name()), block.pos().y());
+			if (delta != null) {
 				directDeltas.add(delta);
 			}
 		}
@@ -1458,7 +1455,7 @@ final class VoxelBuildPlanner {
 		boolean changed = false;
 		List<BuildStep> shiftedSteps = new ArrayList<>();
 		for (BuildStep step : plan.steps()) {
-			ShiftResult result = shiftPlanForIssuesRecursive(step.plan(), deltasByName, repairs);
+			ShiftResult result = shiftPlanForIssuesRecursive(step.plan(), issues, repairs);
 			changed |= result.changed();
 			shiftedSteps.add(new BuildStep(step.phase(), result.plan()));
 		}
@@ -1490,6 +1487,20 @@ final class VoxelBuildPlanner {
 				.max(Map.Entry.<Integer, Integer>comparingByValue().thenComparing(entry -> Math.abs(entry.getKey())))
 				.map(Map.Entry::getKey)
 				.orElse(0);
+	}
+
+	private static Integer safeAutoFixDelta(SupportIssue issue, int currentY) {
+		if (issue == null || issue.suggestedY() <= 0) {
+			return null;
+		}
+		int delta = issue.suggestedY() - currentY;
+		if (delta == 0) {
+			return null;
+		}
+		if (Math.abs(delta) > MAX_AUTO_FIX_SHIFT) {
+			return null;
+		}
+		return delta;
 	}
 
 	private static BuildPlan shiftWholePlan(BuildPlan plan, int deltaY) {

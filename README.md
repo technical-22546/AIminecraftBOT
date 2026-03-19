@@ -435,6 +435,7 @@ Agents should not treat the build planner as a black box. The most important rul
 - The planner now returns structured `issues` identifying floating cuboids or block targets, their `gapBelow`, and a `suggestedY` to ground them correctly.
 - The planner only adds support pillars for real unsupported columns and caps auto-support at 24 columns.
 - If more than 80% of the lowest build columns are already within 2 blocks of solid ground and `autoFix=true`, the planner can auto-lower the whole build instead of spamming pillars.
+- Automatic Y correction is intentionally conservative and capped to small terrain fixes. It will not bury a build deep into the ground just because one mixed-terrain column reports a large gap.
 - `resolvedOrigin` in the result tells you the exact world origin that was actually used.
 - `autoFixAvailable` tells you whether the planner believes a safe grounding fix exists.
 
