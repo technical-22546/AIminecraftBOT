@@ -66,6 +66,7 @@ ATM-scale, variety-first modpacks are _possible_ (ATM proves it) but today requi
 - A vanilla-server product — the product is opinionated toward large, Create-centric packs.
 - Replacing official Minecraft auth — we integrate with Microsoft/Mojang accounts via existing mechanisms, we don't invent our own.
 - **Monetization** — the product is unmonetized through v0, Release, and Day+1. No paid tiers, no license keys, no in-app purchases. A **deep-future possibility** of ad-supported revenue limited to the web app is acknowledged only as a "~day+100" idea; **not in current planning** and no design decisions are made to accommodate it.
+- **Commercial-safety as a design filter** — **explicitly disallowed**. Research and tool-selection must not pass on a better feature-covering option because its license, provider ToS, or redistribution terms would be awkward under commercialization. **Features beat monetization-readiness**. Mods with ARR licenses, generative-image APIs with commercial-use restrictions, or Minecraft hosting ToS that forbid resale are all acceptable here — we are not selling. Workstream K narrows to **personal-use + friend-group distribution compliance only**; commercial-redistribution prep is out of scope until/unless Day+100 reopens it.
 
 **Previously-excluded, now IN scope (but tagged Day+1):**
 - A **launcher** — upgraded from "integrate with existing" to "ship our own, Prism-/Modrinth-class, tuned for Warm Iverson packs" as a **Day+1 output**. MVP exports manifests that existing launchers consume.
@@ -586,17 +587,18 @@ This covers peer + helper + NPC-body roles without writing an agent framework fr
 **Future critical files**: `kubejs/server_scripts/integrations/`, `kubejs/startup_scripts/tags/`, `config/<mod>/` overrides.
 
 ### Workstream K — Legal, IP & Licensing
+**Scope (narrowed 2026-04-18):** **personal-use + friend-group distribution only**. No commercial-redistribution prep, no monetization-safe filtering of tools or mods. Features beat commercial-safety.
 **Goals**
-- Map redistribution rules for every mod in the final shortlist (CurseForge/Modrinth API ToS, per-author license, "no rehosting" clauses). Produce a per-mod legal status sheet.
-- Decide license posture for product code (likely MIT/Apache-2), for the reference pack's configs/KubeJS/quests (separate, consumer-replaceable), and for AI-generated textures (ownership, provider ToS on commercial use, derivative-work stance).
-- Name & trademark audit — "Create" is a trademark; ensure product name, docs, and UI copy do not infringe.
-- Attribution format for mods, artists, AI-model providers, and contributors.
-- Takedown / DMCA handling plan for user-generated content on any hosted surface.
+- Confirm each mod in the final shortlist is **usable by a private friend-group** under its license — the test is "can the 10 of us run this without a C&D," not "could we sell this."
+- Record license posture per mod for awareness only (ARR, GPL, MIT, custom). No commercial-redistribution matrix.
+- Product code license stays open (MIT/Apache-2) for own-use clarity; reference-pack configs/KubeJS/quests separately licensed; AI-generated textures carry provider provenance where cheap to add, but **provider ToS commercial restrictions are not blockers**.
+- Attribution format (loading screen, docs, `/credits`) for courtesy, not compliance.
+- Drop: product naming / trademark audit (deferred to Day+100 if ever).
+- Drop: DMCA / takedown policy for hosted user content (no hosted surface for non-friends in scope).
 **Deliverables**
-- Per-mod legal status sheet.
-- Product license matrix (code / configs / content / textures).
-- Attribution and credits template.
-- Takedown policy.
+- Per-mod personal-use status (OK / blocked) — brief one-liner per mod, not a full legal review.
+- Product code license pick (default MIT).
+- Attribution template (courtesy).
 
 ### Workstream L — Security & Privacy
 **Goals**
@@ -1005,6 +1007,9 @@ Each agenda below is the **starting list** for that workstream's Layer 2 deep-di
 
 Append-only record of vision updates from the user.
 
+- **2026-04-18 — Session 1, commercial-safety filter removed:**
+  - Explicit policy: research, tool selection, and design choices **must not pass on better feature-covering options because of commercial redistribution or monetization concerns**. Features beat commercial-safety. ARR mod licenses, provider-API commercial restrictions, and similar are not blockers.
+  - Workstream K narrowed to **personal-use + friend-group distribution compliance only**. Trademark audit, hosted-content takedown, and commercial-redistribution matrix all dropped (deferred to Day+100 or retired).
 - **2026-04-18 — Session 1, Layer-2 research sweep completed (6 parallel agents):**
   - **Workstream A (loader/version)**: primary = **NeoForge 1.21.1** (~80% confidence), runner-up Forge 1.20.1. Fabric 1.21 disqualified (Create frozen on Fabric 1.20.1). Biggest risk: **Villager Recruits has no 1.21.1 NF port as of today** — must substitute or sponsor a port. Bot-client concern largely moot: Mineflayer is protocol-level and loader-agnostic.
   - **Workstream B (quests)**: primary = **FTB Quests + FTB XMod Compat + FTB Quests Optimizer + Quests Freeze Fix**; runner-up Questify; reject BetterQuesting (no 1.21, ARR) and Heracles (narrative-biased). Solo-dev authoring pipeline = YAML → codegen → SNBT → git, with Cytoscape.js graph editor as Day+1 web-UI path.
