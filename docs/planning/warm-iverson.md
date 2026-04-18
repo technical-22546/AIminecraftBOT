@@ -250,6 +250,49 @@ Each workstream is a long-running effort picked up in dedicated future sessions.
 
 **Future critical files**: `pack/`, `manifest.json` (or Modrinth `modrinth.index.json`), per-side mod manifests.
 
+**Layer-2 research findings — Loader + MC version (2026-04-18):**
+
+Compatibility matrix, as of April 2026, cross-referenced with sources:
+
+| Mod | NeoForge 1.21.1 | NeoForge 1.20.1 | Forge 1.20.1 | Fabric 1.21.x |
+|---|---|---|---|---|
+| Create | **A** (6.x, Jan 2026) | A | A | **M** — Fabric port frozen on 1.20.1 |
+| Create: Aeronautics | **A** (1.0.2, 2026-04-17) | P (older branch) | P | M |
+| KubeJS | **A** (2101.7.2) | A | A (2001.6.5) | P — Fabric build lags |
+| Distant Horizons | **A** (2.2.x) | A | A | A |
+| Oculus / Iris | P — Iris 1.8.1+ NF works, Oculus trails | A (Oculus 1.7 + DH 2.1 only) | A (Oculus 1.8) | A (Iris native) |
+| Powah! Rearchitected | **A** (6.2.8, Jan 2026) | A | A | M |
+| Mekanism | **A** (10.7.19, Apr 2026) | A | A | M |
+| FTB Quests | **A** (2101.1.2) | A | A | P |
+| Heracles | A | A | A | A |
+| Villager Recruits | **P/M** — no 1.21.1 NF port as of Apr 2026 | A (1.13.5, Apr 2026) | A | M |
+| MineColonies | **A** (1.1.1285–1300) | A | A | M |
+
+**Primary recommendation: NeoForge 1.21.1.** Confidence ~80%. Rationale: every load-bearing content mod (Create, Aeronautics, KubeJS, Powah, Mekanism, FTB Quests, MineColonies, DH + Iris) ships a 1.21.1 NeoForge build dated within the last 4 months. Fabric 1.21 is disqualified — **Create is frozen on Fabric 1.20.1**, which alone kills the theme. Forge 1.20.1 is a safe harbour but locks out 1.21 worldgen, data components, and the 2026 mod release cadence — a regrettable floor for a Release with a year of support runway.
+
+**Runner-up: Forge 1.20.1.** Confidence ~60%. Pick only if Recruits is non-negotiable and the 2–4 month window can't absorb a substitution.
+
+**Biggest risks of NeoForge 1.21.1:**
+1. **Villager Recruits has no 1.21.1 NeoForge port as of April 2026.** talhanation ships 1.20.1 Forge on the live branch. Options: (a) wait for a port, (b) sponsor/fork one, (c) substitute (Guard Villagers / Tough As Nails armies / a KubeJS-scripted replacement). This decision feeds Workstream D's embodiment mix.
+2. DH + Iris on NeoForge 1.21.1 still has known breakage cycles when DH ships; budget shader-pack version pinning.
+3. Create: Aeronautics 1.0.2 shipped 2026-04-17 — bleeding edge. Consider waiting ~30 days for a stability patch before committing the pack.
+
+**Bot-client viability (feeds D):** Mineflayer is a **protocol-level Node.js client**, loader-agnostic, MC 1.8 – 1.21.11. Mindcraft wraps Mineflayer+LLMs, officially supports up to 1.21.11 (1.21.6 recommended). **Loader choice does not gate the peer-bot-player approach** if we use Mineflayer. Voyager is stale and would need re-porting. HeadlessMC supports Fabric/Forge/NeoForge. For a 10-player SMP, Mineflayer over the protocol is enough.
+
+**Ecosystem / performance stacks per version:**
+- NeoForge 1.21.1: Embeddium (Sodium port), Radium Reforged (Lithium port), Canary, FerriteCore, ModernFix. Iris 1.8.1-neoforge now native alongside Embeddium, replacing the old Oculus-only path.
+- Fabric 1.21.x: Sodium + Lithium + Starlight + FerriteCore + Krypton — cleanest rendering combo but Create gap kills it.
+- Forge 1.20.1: Rubidium/Embeddium + Oculus 1.8 + Radium/Canary — most mature Forge perf stack ever shipped, but 1.20.1-locked.
+
+**Open questions (for Layer-2 follow-up):**
+1. Recruits: live without it, or commission/port if 1.21.1 NF doesn't land in 60 days?
+2. Existing Fabric 1.21.1 AI mod: rewrite on NeoForge, or run bots purely over Mineflayer (removes the loader-matching requirement)?
+3. Shaders required for all 10 players, or DH-only acceptable for some?
+4. Ride Create: Aeronautics 1.0.2 bleeding edge, or wait ~30 days?
+5. Server software: vanilla NeoForge server, or NeoForge + Sinytra-on-server to re-enable select Fabric mods?
+
+**Sources:** Create wiki Development Status + CurseForge; Create Aeronautics 1.0.2 (Modrinth) + GitHub; KubeJS 2101.7.2 NeoForge + 2001.6.5 Forge (CurseForge); Distant Horizons 2.2.x (Modrinth); Oculus 1.8.0 (CurseForge); Powah Rearchitected 6.2.8 (Modrinth); Mekanism 1.21.1 10.7.19 (CurseForge); FTB Quests 2101.1.2 NeoForge 1.21.1; Heracles (terrarium-earth GitHub); Villager Recruits (CurseForge + Modrinth — no 1.21.1 NF branch); MineColonies files (CurseForge); Embeddium (Modrinth); Mindcraft + Mineflayer + HeadlessMC + Voyager (GitHub).
+
 ### Workstream B — Content Layer (recipes, textures, quests)
 **Goals**
 - Decide scripting stack (KubeJS only, or KubeJS + CraftTweaker where each excels).
@@ -266,6 +309,86 @@ Each workstream is a long-running effort picked up in dedicated future sessions.
 - Questbook outline: chapters, milestones, dependency graph.
 
 **Future critical files**: `kubejs/`, `resourcepacks/`, `prompts/textures/`, `config/ftbquests/` (or Heracles equivalent).
+
+**Layer-2 research findings — Quest framework (2026-04-18):**
+
+Landscape (compared: FTB Quests 2111.1.5 / Heracles / Odyssey Quests / BetterQuesting / Questify):
+
+- **FTB Quests** — NeoForge + Fabric on 1.20.1, 1.21.1, 1.21.x. Huge install base (~192M DL). In-game editor + SNBT on disk. Mature dependency graph (AND/OR/XOR, chapter locks, dependency groups). KubeJS integration via **FTB XMod Compat**. LGPL. **Known perf issue:** 500-quest load can take >30 min and crafting hook is hot; mitigated fully by **FTB Quests Optimizer** + **Quests Freeze Fix**.
+- **Heracles / Odyssey Quests** — NeoForge+Fabric+Forge 1.20.1 / 1.21.x. Tree + parallel branches, composite + scripted tasks. Lighter. **Branching/tree model is narrative-oriented — contradicts our purely-mechanical requirement.**
+- **BetterQuesting** — Forge 1.20.1 only, no 1.21 port. **ARR license post-4.0. Avoid.**
+- **Questify** — Fabric+NeoForge 1.21.x. Auto-imports FTBQ packs, drag-drop theme editor, in-game KubeJS editor. FTBQ-parity ambitions + web-editor ambitions. Small but active community.
+
+**Primary decision: FTB Quests + FTB XMod Compat + FTB Quests Optimizer + Quests Freeze Fix.** FTBQ is the only mature option with proven tier-gate + team-progression features, battle-tested KubeJS surface for custom tasks (NBT checks, Create contraption observation), and full loader coverage on both our 1.20.1 and 1.21.x candidates. Performance pitfalls are real but fully mitigated by the two known optimizer mods. Pin exact versions across FTBQ/XMod/KubeJS.
+
+**Runner-up: Questify.** Keep as hot backup — its FTBQ auto-import + in-game KubeJS editor + web-UI ambitions align with our Workstream J texture-designer/questbook surfaces. Migration path exists mid-project if needed.
+
+**Rejected:** BetterQuesting (no 1.21, ARR license risk). Heracles (narrative-biased).
+
+**Authoring pipeline for solo dev:**
+1. Source of truth: `quests/` SNBT in git. In-game editor is never authoritative — export every session.
+2. Templating layer: YAML tier spec → code-gen → SNBT. Regenerate 300+ quests from one spreadsheet.
+3. KubeJS custom tasks: one `kubejs/server_scripts/quests/custom_tasks.js` per category, registering `FTBQuestsEvents.custom_task` handlers for observation/NBT/Create-specific checks.
+4. Recipe ↔ quest binding: recipe IDs and task IDs emitted from the same YAML to prevent drift.
+5. Validation CI: lint walks the SNBT tree, fails on dangling deps / orphan chapters before commit.
+6. Web-UI roadmap: static render (SvelteKit/Next) short-term → Cytoscape.js graph editor that writes YAML mid-term → evaluate Questify's web editor for Day+1.
+
+**Risks & open questions:**
+- 500+ quest server-start lag is the top bite risk; optimizer mods from day one, monthly load-test.
+- FTB XMod Compat version-coupling with FTBQ and KubeJS — exact pins required.
+- AI-assisted quest authoring (Skywork/Kodari) not production-ready for FTBQ SNBT — treat as experimental.
+- Open: target quest count (200 / 500 / 1000+)? Team-shared progress required? Web-UI by Release or Day+1?
+
+**Sources:** FTB Quests on CurseForge + feed-the-beast docs; FTB-Quests CHANGELOG and issue-tracker (GitHub FTBTeam/FTB-Mods-Issues #1063, #1440); FTB XMod Compat; Heracles (terrarium-earth) and Odyssey Quests on Modrinth; BetterQuesting on CurseForge; Questify on Modrinth; Kodari AI datapack generator 2026.
+
+**Layer-2 research findings — AI texture pipeline (2026-04-18):**
+
+Landscape surveyed: SDXL / Flux 2 / pixel-art LoRAs; PixelLab + Retro Diffusion; commercial APIs (Imagen 4, Gemini 3 Pro Image, GPT Image 1.5/Mini, Ideogram 3.0, Flux 2 Pro); Minecraft-specific SaaS tools (Craftbench, Bloxal, Magic Palette); classical augmenters (Real-ESRGAN, PBRify_Remix, ComfyUI-TextureAlchemy, ComfyUI-seamless-tiling, PixelArt-Detector). NVIDIA bench shows DGX Spark runs Flux.1 12B FP4 at ~2.6s/1K-image and SDXL BF16 at ~7 imgs/min — vastly overkill for 16×16 generation. **Anthropic does not ship an image-generation API as of April 2026** — Claude is for prompt-writing + evaluation only.
+
+**Primary pipeline (local, $0/month):**
+- **Base:** SDXL + **Pixel Art XL LoRA** (strength 0.9) + custom `warm-iverson-block` LoRA (train on 50–80 curated tiles) + **ControlNet-Depth** (feed simple Blender/MC depth render) + seamless-tiling node.
+- **Tooling:** ComfyUI on DGX Spark (LooseControl-with-Minecraft-style workflow + Depth-ControlNet reference).
+- **Post:** generate at 512×512 → Real-ESRGAN pixel model → PixelArt-Detector best-offset downscale → KMeans quantize to locked 32–64 color palette → optional PBRify for normal/rough/AO.
+- **Throughput:** hundreds per hour trivially on DGX Spark.
+
+**Fallback for hero assets:** Gemini 3 Pro Image (~$0.035/image) for edit/variation consistency; Ideogram 3.0 (~$0.03) when panels need readable symbols. Pipe through the same palette-lock post-process so hero assets match bulk local output. Budget $5–20 per release for hero icons.
+
+**Prompt library skeleton (7 seed categories):**
+All prompts append shared suffix: `, 16x16 pixel art texture, seamless tileable, top-down orthographic, limited palette, crisp pixel edges, warm iverson style`. Shared negative: `blurry, anti-aliased, photographic, isometric perspective, text, watermark, signature, 3d render, smooth gradient, noise`.
+
+| Category | Sample prompt |
+|---|---|
+| Stone variants | `weathered granite block, cool grey with mica flecks, chiseled bevel edges` |
+| Metal blocks | `polished industrial steel plate, rivets on corners, brushed metal sheen` |
+| Wood planks | `oak plank, vertical grain, warm amber tone, knot in center` |
+| Ores | `deepslate embedded with glowing cobalt crystals, sharp facets` |
+| Tech / machine | `sci-fi machine panel, blue LED indicator, vent grille, dark gunmetal` |
+| Decorative | `ornate carved sandstone, filigree relief, desert-tomb motif` |
+| Item icons | `hand-held iron pickaxe, 3/4 view, drop shadow, transparent background` |
+
+**Iteration loop (Think → Generate → Evaluate → Refine → Assign):**
+1. **Think:** agent reads YAML spec (block id, category, adjacency constraints, CTM/CIT role) → fills prompt template.
+2. **Generate:** ComfyUI batch of N=8 seeds per spec.
+3. **Evaluate (automated):**
+   - Palette conformity (% pixels matching locked palette)
+   - Tileability (self-seam diff after 90° shift)
+   - Contrast/luminance band matching neighbor blocks
+   - Edge crispness (Laplacian variance post-downscale)
+   - Semantic check via small VLM (Claude or local Llama-3.2-Vision): "Does this look like <prompt>? 1–5."
+   - Dedup hash against existing pack.
+   - Gate: ≥0.75 auto-accept; 0.5–0.75 queued for human review; <0.5 auto-refine.
+4. **Refine:** img2img, CFG 3–5, 0.35 denoise, reuse seed with adjusted weights.
+5. **Assign:** write PNG + `.mcmeta` + CTM/CIT JSON to pack tree; commit with spec hash in message for reproducibility.
+
+**Open questions (Layer-2 follow-up):**
+- Java (Optifine/Continuity CTM) vs Bedrock RTX PBR? Changes the normal-map pipeline. (Almost certainly Java — but confirm.)
+- Baseline resolution: 16× (vanilla feel) or 32× (more room for "3D"-style)?
+- Hand-drawn seed set for custom LoRA training, or bootstrap from a license-compatible public pack?
+- Fallback API spend ceiling per release (suggest $25)?
+- Parallax/POM depth textures in scope, or stylistic "fake 3D" shading only?
+- Agent auto-commits to git, or opens a PR for human review?
+
+**Sources:** NVIDIA DGX Spark perf blog; LMSYS DGX Spark review; Flux 2 vs SDXL comparisons (Apatero, pxz.ai); Pixel Art XL LoRA (promptlayer); PixelLab API + Retro Diffusion; AI Image API pricing (BuildMVPFast, IntuitionLabs); Craftbench / Bloxal / Magic Block; ComfyUI PixelArt-Detector / PBRify_Remix / TextureAlchemy / seamless-tiling; LooseControl Minecraft workflow; Depth ControlNet reference; Planet Minecraft ESRGAN vanilla-upscale test.
 
 ### Workstream C — Hosting, Operations & Self-Healing
 **Goals**
@@ -288,6 +411,50 @@ Each workstream is a long-running effort picked up in dedicated future sessions.
 - Agent-runtime isolation spec (process boundaries, egress policy, resource limits, reset procedure).
 - Self-healing policy catalogue (detector → remediator pairs, escalation thresholds).
 - Ops runbook (start/stop/backup/restore/upgrade) with auto-remediation call-outs.
+
+**Layer-2 research findings — Self-healing MC ops (2026-04-18):**
+
+**Prior-art coverage (what we borrow vs what we build):**
+
+| Remediation | Prior art | Gap |
+|---|---|---|
+| Crash-loop detect + restart | Pterodactyl Wings `crash.go`, AMP, MCSManager, `systemd Restart=always` | No **progressive backoff**, no "rollback to last-known-good world" selection |
+| TPS-drop triage | Spark (`/spark tps`, scheduled profilers, SparkWebAPI) | No automatic trigger on MSPT>threshold → snapshot → correlate-with-changes |
+| Config drift | Nothing shipping | No pinned-pack hash diff, no selective restore |
+| Disk guardrails | Pterodactyl backup API + S3; `Fz77z/pterodactyl-automated-backups` | No disk-free SLO alerting, rotation is per-server not global |
+| World backups (in-process) | FTB Backups 2, AromaBackup, Simple Backups | No off-host shipping, no integrity verification |
+| Agent containment | LXC + Proxmox HA, systemd-nspawn | Not MC-aware |
+| Mod quarantine | Fabric/Forge hotswap is dev-only; live-disable = rename `.jar` + restart | No online quarantine primitive |
+| World rollback | FTB Backups `/backup restore`, manual `.tar.zst` | No crash-correlated "last-known-good" selection |
+| LLM-as-SRE for MC | Nothing mature (Hopper-Hacks stubs, MoLing-MCP, SoulFire chatbot) | No diagnostic agent ingesting Spark + crash logs + git diff |
+
+**Gap — what we have to build:**
+1. **Diagnostic-agent dispatcher.** LLM ingests Spark snapshot + `crash-reports/*.txt` + recent `git log` of pack config + Pterodactyl events → ranked hypotheses. Adapt Rootly's SRE-agent pattern for MC.
+2. **TPS-drop triage automation.** Spark issue #130 confirms programmatic profiler start/stop is still a feature request. Build: poll `/tps` → if MSPT p95 > threshold for T seconds → `POST /profiler/start` → upload snapshot → notify agent.
+3. **Config-drift auto-restore.** Hash `config/`, `kubejs/`, `defaultconfigs/` at deploy; diff on boot; restore divergent files (allowlist for runtime-mutable).
+4. **Crash-correlated rollback.** Extend Wings' N-restarts-in-T window with "which world snapshot predates the first bad crash."
+5. **Online mod quarantine.** True hot-disable infeasible (ClassLoader). Best achievable: denylist → graceful stop → relaunch with `.jar.disabled`. Ship as first-class primitive.
+
+**Recommended stack:**
+- **Panel:** stay on **Pterodactyl** (Wings crash-detection + backup API + egg model is scriptable). AMP is polished but closed-source.
+- **In-server profiler:** **Spark** mod; poll via `/spark tps --json` or **SparkWebAPI** plugin. Keep **Observable** for on-demand entity drill-down when agent requests.
+- **Perf mods baseline:** Clumps, Cull Leaves, FerriteCore, ModernFix (already in the Create pack).
+- **Backups:** **FTB Backups 2** inside the JVM (fast world snapshots) + Pterodactyl backup API → S3 for full-server restic-style archives. Custom cron honors a disk-free SLO.
+- **Watchdog:** Pterodactyl Wings as floor. Add a **Rust/Go sidecar in LXC** implementing **progressive backoff (30s → 2m → 10m)** and "3 crashes in 10 min → world rollback."
+- **Agent runtime containment:** LXC + `systemd Restart=on-failure`; template-rebuild via Proxmox API after 3 failed restarts.
+- **Diagnostic agent:** bespoke, runs on DGX Spark. Tools: Pterodactyl API, Spark snapshot fetcher, pack-repo git log, log tailer, `propose_quarantine(mod_id)` + `propose_rollback(snapshot_id)` actions with **human-approval gate** for destructive ones.
+- **K8s-style probes:** TPS-aware **liveness analog** (MSPT probe) + **readiness analog** (chunks loaded + players-can-join). Chaos-test per Steadybit pattern.
+
+**Control-plane integration (J):** self-healing layer publishes a typed event stream on **NATS or Redis Streams** with subjects `mc.crash.*`, `mc.tps.*`, `mc.config_drift.*`, `mc.backup.*`, `mc.agent.*`. Web app subscribes for dashboards + audit trail; Discord bot subscribes only to `*.paged` and `*.remediated`. Diagnostic-agent outputs land on `mc.agent.hypothesis` with a signed approval URL routed via the gateway.
+
+**Open questions (Layer-2):**
+- **Recovery Point Objective**: losing last 10 min on rollback OK, or need sub-minute?
+- Public status page for players, or Discord-only notifications?
+- LLM budget per incident (local DGX only, or frontier API fallback if diagnostic stalls)?
+- Pack under git already (required for drift-restore), or must we introduce it?
+- Agent auto-action authority: auto-quarantine yes, auto-rollback yes, auto-revert-git-commit no?
+
+**Sources:** Pterodactyl Wings `crash.go` + panel issues #2495, #1641; AMP guide 2026; MCSManager; Spark + SparkWebAPI + issue #130; Observable; FTB Backups 2; Simple Backups; Pterodactyl S3 guides; Fz77z/pterodactyl-automated-backups; DeepWiki Pterodactyl backup system; systemd gist; GGServers watchdog note; Fabric hotswap wiki; ATM9 FAQ; k8s probe docs; Steadybit chaos probes; Rootly AI-SRE trust; MSFT Agent Governance Toolkit; hopper-hacks minecraft-agents; MoLing-Minecraft MCP; SoulFire AI chatbot.
 
 ### Workstream D — AI Agent Architecture
 **Goals**
@@ -336,6 +503,57 @@ Workstream D must produce a **capability matrix** comparing each embodiment on: 
   - **Claude Skills** (prompt-packaged playbooks): e.g., `build-starter-base`, `scout-biome`, `stock-kitchen`, `balance-recipe`, `author-quest-chapter`, `generate-texture-set`, `debug-recipe-conflict`.
   - **MCP Tools** (code-backed, deterministic): reuse and extend the existing `minecraft_*` tool surface (buildsite, execute_build_plan, recipe_lookup, etc.) with new tools demanded by the modpack (Create-network inspection, KubeJS recipe validation, quest progress query, fake-player control, resource-pack diffing).
   - Each entry has: name, purpose, inputs, outputs, preconditions, side-effects, cost class, failure modes, and the exact prompt(s) that drive it.
+
+**Layer-2 research findings — AI-agent-in-Minecraft landscape (2026-04-18):**
+
+**Field summary (frameworks evaluated):**
+
+| Framework | Loader/MC | Verb coverage | Vision | Create-aware | Multi-agent | Provider | License | Status |
+|---|---|---|---|---|---|---|---|---|
+| **Mindcraft / Mindcraft-CE** v0.1.4 | External (Mineflayer) / up to 1.21.11 | 47 verbs (incl. `!newAction` codegen) | Yes (MM models) | Partial (generic blocks) | Native `--profiles` | **Agnostic (16+)**: OpenAI, Anthropic, Gemini, DeepSeek, Ollama, vLLM, Cerebras, OpenRouter | MIT | **Active 2026** |
+| Voyager | Fabric 1.19 | Skill-library codegen | No | No | No | GPT-4 coupled | MIT | **Stale 2023** |
+| Project Sid / PIANO | No code — paper only | N/A | — | No | Yes (1000s) | N/A | None | **Paper only** (Altera wound down) |
+| **Mineflayer** stack | External, 1.8–1.21.11 | Full (pathfinder, pvp, collectblock, statemachine, autoeat, tool) | Via plugin | Generic only | Per-process | Agnostic | MIT | Active |
+| Claude/MCP Mineflayer wrappers (yuniko-software, haksndot, hibukki, leo4life2) | External, 1.21.4–1.21.11 | 20–40 MCP-wrapped Mineflayer verbs | Partial | Generic | Per-instance | Claude-primary, MCP-generic | Apache-2 / MIT | Active 2025–26 |
+| MineDojo | Malmo / 1.11–1.16 | Sim-only | Yes | No | Sim-only | Custom | MIT | **Frozen** |
+| **Baritone** | Forge/Fabric / up to 1.21.x | Deterministic `#goto`/`#mine`/`#build`/`#farm`/`#follow` | No | Generic | 1 per client | N/A (no LLM) | LGPL-3.0 | **Active** |
+| Minecolonies | NeoForge/Forge/Fabric / 1.20.1, 1.21.1 | NPC professions | No | No | Colony-scope | N/A | GPL-3.0 | **Very active** |
+| Villager Recruits | NeoForge / 1.21.x (no 1.21.1 NF yet) | Commandable combat NPCs | No | No | Squad | N/A | ARR | Active on 1.20.1 |
+| CustomNPCs-Unofficial | Forge / 1.20, 1.21 unofficial | Scriptable (JS/Python) | No | Via script | Many | Scriptable, HTTP | MIT | Semi-active |
+| LLMCraft (Citizens-based) | Spigot/Paper, 1.12–1.20.6 | Dialogue only | No | No | Many NPCs | Any LLM | — | Active |
+| **AI Player mod** (shasankp000) | Fabric 1.21.1 → 1.21.6 | Move/mine/place/craft/combat/chat | No | Generic | Multiple | Ollama + OpenAI-API | MIT | Active |
+| **This repo's Gemini AI Companion** | Fabric 1.21.1 | Helper-role build-planner, highlights, undo, voice | Yes (screenshots) | Unclear | Single | Gemini + MCP | MIT | v1.3.2 |
+
+**Recommended embodiment mix for Warm Iverson:**
+
+1. **Peer bot-players (full range):** **Mindcraft-CE** on Node.js, **local Ollama or vLLM** on DGX Spark serving Qwen2.5-72B or Llama-3.3-70B for main-loop, **Gemini 2.5 Pro / Claude as fallback** for hard planning. Multi-profile spawning covers 2–3 concurrent peer bots. MIT license, loader-agnostic via Mineflayer protocol.
+2. **Deterministic verb floor:** under each LLM-driven peer bot, expose **Baritone** as a tool (`baritone:#goto`/`#mine`/`#build <schematic>`). Each peer bot runs as a headless Fabric client with Baritone + a small bridge mod. Rescues build/travel reliability for Create contraptions.
+3. **Helper / overseer (disembodied):** **Keep this repo's Gemini AI Companion** as-is. Reskin as the Warm Iverson narrator/architect. Already has voice, vision, build-preview, MCP, permissions.
+4. **Long-horizon colony work:** **Minecolonies** (1.21.1 NF) for background economy/village NPCs. Layer LLM commentary via its event bus for flavor narration — not full control.
+5. **Combat squads / escorts:** **Villager Recruits** for commanded parties (contingent on 1.21.1 NF port landing — see Workstream A loader risk).
+6. **Optional:** single **CustomNPCs** install for scripted quest-giver bodies with LLM-fed dialogue via HTTP.
+
+This covers peer + helper + NPC-body roles without writing an agent framework from scratch.
+
+**Biggest gaps we must build:**
+- **Create-mod verb library.** Nothing understands wrenches, rotation, blaze burners, deployers, trains, encased chains, schedule blocks. Author a Mineflayer plugin / Baritone process extension exposing `rotateShaft(pos, dir)`, `setScheduleStation(...)`, `placeDeployer(...)`, etc. — **the single most important build**.
+- **Multi-agent world-state blackboard.** Mindcraft does pairwise chat only; Project Sid PIANO is paper. Need a shared memory store (Redis/SQLite) + role arbitration so bots don't all mine the same chunk.
+- **Persona/role supervisor.** Cast-list config: which body gets which model, which memory scope, which permissions. Neither Mindcraft nor this repo has a clean one.
+- **Anti-grief/guardrails for peer bots on a 10-player SMP.** Quotas, rate-limits on block changes, undo-on-demand that survives restart.
+- **Bridging helper ↔ peer bot.** Fabric companion mod + external Mindcraft Node process need a shared channel (extend existing MCP sidecar).
+- **DGX Spark model loadout.** 128GB unified handles one 70B + one 13B concurrently; 3 bots × 5–15 tok/s needs batching (**vLLM** or **TGI**).
+
+**Voyager and Project Sid explicitly excluded** as deployment targets (stale / paper-only).
+
+**Open questions (Layer-2):**
+- DGX Spark always-on for this server, or shared workload? Sets local-vs-API default.
+- Create interaction depth: "operate existing player-built contraptions" vs "design and build new ones"? Latter is ~4× the verb work.
+- Peer bots pass as human to visitors, or announce as AI?
+- Voice output for peer bots (not just helper) — required or nice-to-have?
+- Persistence horizon: should a peer bot remember last week's project across restarts? Drives memory architecture (vector DB vs session-only).
+- Concurrent-bot headcount target (2–3, or 8–10 Altera-scale)? Biggest cost driver.
+
+**Sources:** Mindcraft + Mindcraft-CE (GitHub); "Collaborating Action by Action" Mindcraft paper (arXiv 2504.17950); Voyager site + GitHub; Co-Voyager fork; Project Sid paper (arXiv 2411.00114) + (empty) repo; Fundamental Research Labs write-up of Sid; Mineflayer + pathfinder + statemachine (PrismarineJS); yuniko-software MCP server; haksndot/haksnbot-tools; leo4life2 minecraft-bot-control (PulseMCP); Claude Agent SDK MCP docs; Baritone (cabaletta); MineDojo; Minecolonies (ldtteam); Villager Recruits (CurseForge); CustomNPCs-Unofficial; LLMCraft (SpigotMC); AI Player mod (Modrinth + shasankp000 GitHub); MineLand multi-agent simulator (arXiv 2403.19267); Create mod (CurseForge).
 
 ### Workstream E — Existing AI Mod Audit & Evolution
 **Goals**
@@ -472,6 +690,84 @@ Workstream D must produce a **capability matrix** comparing each embodiment on: 
 - Observability + audit plan.
 
 **Future critical files**: `web/` (frontend + backend), `discord-bot/`, `control-plane/` or `gateway/`, shared API/MCP schemas under `shared/api/`, deployment assets under `deploy/`.
+
+**Layer-2 research findings — Web app + Discord control plane (2026-04-18):**
+
+**Reference identification:**
+- **Hermes Agent** (Nous Research, v0.10 Apr 13 2026): long-lived agent with a local web dashboard. Borrow: **platform-tagged session rows** (CLI/Telegram/Discord/Slack/cron icons), skills browser, gateway/config panel replacing YAML, background-process monitor.
+- **OpenCode** (sst/opencode, ~95k★): "one gateway, many clients" (TUI, VS Code, desktop, web). Built-in **Agents** with scoped tool access. Borrow: **one gateway / many clients** architecture, **Plan vs Act** split, custom-agent YAML with tool allowlists.
+- **"OpenClaude"**: most credible 2026 referent is Gitlawb/openclaude (multi-provider CLI from the March 2026 Claude Code leak). The UI pattern to borrow is actually **Claude Code UI / CloudCLI** (siteboon/claudecodeui) + **Claudia GUI** — session mgmt, mobile/web remote control, visual approval step for every tool call.
+
+**Common UI pattern across the field** (Cline, Aider, OpenHands, LangGraph Studio, AutoGen Studio / MS Agent Framework 1.0, Claudia, CloudCLI, Hermes): left rail = sessions; center = **tool-call timeline** (expandable args/results); right rail = **approval queue + cost meter**; bottom = streaming console. Steal wholesale.
+
+**Recommended stack (end-to-end):**
+
+| Layer | Choice | Why |
+|---|---|---|
+| **Frontend** | **Next.js 16 + shadcn/ui + Tailwind v4 + TypeScript** | Lowest-friction solo path; fork **Kiranism/next-shadcn-dashboard-starter** |
+| **Real-time bus** | **Redis pub/sub + Streams** fronted by a **WebSocket** gateway; **SSE** for read-only firehoses | Redis p99 ~0.8ms; already cache/queue; NATS JetStream overkill until multi-box |
+| **Backend gateway** | **Node.js (Fastify)** or **Python (FastAPI)** — follow agent-framework language | REST + WebSocket `/events` + SSE `/logs` |
+| **Agent framework** | **LangGraph (Python)** with LangSmith tracing | LangGraph Studio is the dev-time debugger |
+| **MC integration** | **Minecraft-MCP-Server (RCON) + DiscordSRV** for in-game chat mirror | DiscordSRV is shim only; our bot owns `/srv cmd`, approvals, agent events |
+| **Map** | **BlueMap + LiveAtlas frontend**, iframed under gateway auth | BlueMapAPI for marker/POI posts; LiveAtlas unifies multiple backends |
+| **Server panel** | **Pterodactyl** iframed + API-proxied (don't rebuild) | Wings crash + backup + egg = scriptable |
+| **Discord bot** | **discord.js v14** | Keeps one JS/TS language with gateway |
+| **Auth** | **Auth.js v5** (Discord OAuth) + role-mapped ACL per env in Postgres | Better Auth is a modern alt if 2FA/passkeys become priority |
+| **DB** | **Postgres + Drizzle ORM** | |
+| **Deploy** | **Docker Compose on Proxmox LXC** + Traefik for TLS; one-liner bootstrap | Matches C's infra |
+
+**Starter templates to fork:**
+- **Kiranism/next-shadcn-dashboard-starter** — Next.js 16 admin skeleton (themes, Kanban, Recharts).
+- **arhamkhnz/next-shadcn-admin-dashboard** — alt shadcn admin.
+- **sst/opencode** — multi-client-one-gateway pattern.
+- **OpenHands/OpenHands** — agent loop + sandbox reference (React SPA + REST separation, live event stream).
+- **siteboon/claudecodeui** — remote agent session UI for mobile/web.
+- **JLyne/LiveAtlas** — unified map frontend.
+- **Peterson047/Minecraft-MCP-Server** — RCON → MCP bridge.
+- **BlueMap-Minecraft/BlueMapAPI** — marker API.
+
+**Integration diagram:**
+
+```
+                        +-------------------+
+                        |   Next.js Web     |
+                        |  (shadcn admin)   |
+                        +---------+---------+
+                                  |  HTTPS + WS
+         Discord OAuth            v
++---------------+        +-----------------------+        +------------------+
+| Discord Bot   |<------>|  Control-Plane        |<------>| Agent Framework  |
+| (discord.js)  |  WS    |  Gateway (Fastify)    |  gRPC  | (LangGraph +     |
+|  /srv cmd     |        |  REST + WS + SSE      |        |  LangSmith)      |
++------+--------+        +----+------+-----+-----+        +--------+---------+
+       |                      |      |     |                       |
+       | DiscordSRV chat      |      |     |                       | GPU jobs
+       v                      v      v     v                       v
++---------------+   +----------+  +-----+ +-----+          +-------------------+
+| MC Server     |<--| MCP/RCON |  |Redis| | PG  |          |  DGX Spark node   |
+| (Fabric+mods) |   |  Bridge  |  |pub/ |  |     |         | (vLLM/TGI local   |
+| BlueMap, Pl3x |   +----------+  |sub+ |  +-----+         |  inference)       |
++------+--------+                 |strm |                  +-------------------+
+       | iframe                   +-----+
+       v
++---------------+      +----------------+
+| BlueMap Web   |      | Pterodactyl    |
+|  (:8100)      |      | Panel + Wings  |
++---------------+      +----------------+
+```
+
+**Biggest risk for solo 2–4 month ship:** **scope creep on the authoring tools** (KubeJS recipe editor, texture-prompt designer, questbook editor). Each is a mini-IDE. Ship v1 as **read-only viewers + raw JSON/KubeJS edit + validate-on-save + server hot-reload** — not drag-and-drop GUIs. Second risk: **approval-queue semantics under disconnect**. Design the agent event bus idempotent from day one (Redis Streams + consumer groups), else a dropped WS = silently lost approvals.
+
+**Open questions (Layer-2):**
+1. **Agent framework language** — LangGraph/Python, MS Agent Framework/.NET, or TypeScript (OpenCode-style)? Picks gateway runtime.
+2. **Self-host LLM or API-only?** DGX Spark implies local → vLLM/TGI in stack. Confirm or revise.
+3. **Is Pterodactyl acceptable as server-lifecycle UI**, or must the web app own start/stop/backup natively? (Recommend: iframe Pterodactyl for v0/Release, native by Day+1.)
+4. Modpack distribution target — CurseForge, Modrinth, or both? Affects pack-creator surface.
+5. Loader — resolved as NeoForge 1.21.1 per Workstream A.
+6. Single SMP or fleet? Per-env channels imply ≥3 MC instances; confirm we're not building multi-tenant before Day+1.
+7. **KubeJS editor scope** — raw editor + validator, or full visual recipe graph? (Recommend: raw for Release, graph for Day+1.)
+
+**Sources:** Hermes Agent Web Dashboard + GitHub; OpenCode + DeepWiki sst/opencode; OpenHands GitHub + 2026 review; siteboon/claudecodeui; Gitlawb/openclaude; Claudia GUI; cline/cline; Agentic CLI Tools Compared (aimultiple); LangGraph vs AutoGen 2026; Dynmap vs BlueMap vs Squaremap vs Pl3xMap (berrybyte); LiveAtlas; BlueMap + BlueMapAPI; Pterodactyl Panel; MC-DC Bridge; Discord Integration (Forge); Peterson047 Minecraft-MCP-Server; Kyle Kelley minecraft-rcon-mcp; Real-Time Event Streaming 2026 (Kafka/Redis/NATS); SSE vs WebSockets (oneuptime); better-auth vs Lucia vs NextAuth 2026; Kiranism/next-shadcn-dashboard-starter; arhamkhnz/next-shadcn-admin-dashboard; Vercel Next.js + shadcn admin template; Pycord slash commands.
 
 ### Workstream I — Product Packaging, Distribution & Docs
 **Goals**
@@ -709,6 +1005,14 @@ Each agenda below is the **starting list** for that workstream's Layer 2 deep-di
 
 Append-only record of vision updates from the user.
 
+- **2026-04-18 — Session 1, Layer-2 research sweep completed (6 parallel agents):**
+  - **Workstream A (loader/version)**: primary = **NeoForge 1.21.1** (~80% confidence), runner-up Forge 1.20.1. Fabric 1.21 disqualified (Create frozen on Fabric 1.20.1). Biggest risk: **Villager Recruits has no 1.21.1 NF port as of today** — must substitute or sponsor a port. Bot-client concern largely moot: Mineflayer is protocol-level and loader-agnostic.
+  - **Workstream B (quests)**: primary = **FTB Quests + FTB XMod Compat + FTB Quests Optimizer + Quests Freeze Fix**; runner-up Questify; reject BetterQuesting (no 1.21, ARR) and Heracles (narrative-biased). Solo-dev authoring pipeline = YAML → codegen → SNBT → git, with Cytoscape.js graph editor as Day+1 web-UI path.
+  - **Workstream B (textures)**: primary = **SDXL + Pixel Art XL LoRA + custom LoRA + ControlNet-Depth + seamless-tiling on ComfyUI** (DGX Spark, $0/mo); fallback = Gemini 3 Pro Image / Ideogram 3.0 for hero assets ($5–20/release). Claude has **no image-gen API**, used only for prompts + eval. Automated eval rubric covers palette/tileability/contrast/crispness/VLM semantic + dedup hash.
+  - **Workstream C (self-healing)**: stack = Pterodactyl + Spark + SparkWebAPI + FTB Backups 2 + LXC-isolated Rust/Go watchdog sidecar + bespoke diagnostic agent on DGX Spark. Must-build: diagnostic-agent dispatcher, TPS-drop triage automation, config-drift auto-restore, crash-correlated rollback, online mod quarantine primitive.
+  - **Workstream D (agent frameworks)**: recommended embodiment mix = **Mindcraft-CE** (MIT, 16+ providers, up to 1.21.11) for peer bot-players + **Baritone** as the deterministic verb floor + **this repo's Gemini mod** as the helper/overseer (reskinned) + **Minecolonies** for colony work + **Villager Recruits** for combat squads (contingent on A's loader risk). Voyager stale (2023), Project Sid is paper-only. Biggest build: **Create-mod verb library** (wrenches, rotation, deployers, trains, schedule blocks).
+  - **Workstream J (web app + Discord)**: primary stack = **Next.js 16 + shadcn/ui + Tailwind v4 + LangGraph + Redis Streams + WebSocket gateway + Fastify + Postgres/Drizzle + Auth.js v5 (Discord OAuth) + discord.js + BlueMap + LiveAtlas + iframe Pterodactyl**. Fork starters: Kiranism/next-shadcn-dashboard-starter, OpenHands (agent-loop ref), claudecodeui (remote session UI), Peterson047/Minecraft-MCP-Server (RCON→MCP). Biggest solo-ship risk: scope creep on authoring tools — ship v1 as read-only viewers + raw JSON + validate-on-save, not GUIs.
+  - **12 new open questions** surfaced across workstreams (see each workstream's research-findings block); queue for follow-up Layer-2 sessions per workstream.
 - **2026-04-18 — Session 1, player-count lock:**
   - Design strictly for **10 players, no headroom**. No over-provisioning in hardware (C), coordination (D), or control plane (J). Multi-instance (Day+1) is treated as a different-topology feature, not a capacity-growth one.
 - **2026-04-18 — Session 1, narrative decision:**
