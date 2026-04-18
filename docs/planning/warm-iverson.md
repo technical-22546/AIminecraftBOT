@@ -366,7 +366,7 @@ Workstream D must produce a **capability matrix** comparing each embodiment on: 
 
 **Future critical files**: `web/` (frontend + backend), `discord-bot/`, `control-plane/` or `gateway/`, shared API/MCP schemas under `shared/api/`, deployment assets under `deploy/`.
 
-**Repository placement (decided 2026-04-18):** This repo (`AIminecraftBOT`) is the home of the web-app + Discord control plane — it **is** the Hermes-agent / openclaw-style product codebase. The existing Fabric AI Companion mod + MCP sidecars already present in this repo stay as siblings (mono-repo) unless Workstream F decides otherwise; the mod is the control plane's in-world counterpart and its MCP bridge is the wire protocol between them. Layer 2 sessions for F (repo layout) and E (mod evolution) must lock the exact subdirectory split (e.g., `mod/`, `mcp-sidecar/`, `web/`, `discord-bot/`, `gateway/`, `docs/`).
+**Repository placement (decided 2026-04-18):** This repo (`AIminecraftBOT`) is the home of the **agent-style web app + Discord control plane** — the Hermes / openclaw-style product codebase. That is the **core deliverable of this repo**. The existing Fabric AI Companion mod and MCP sidecars already present here are retained as the **reference test target / worked example** the web app drives during development: a ready-made in-world counterpart whose MCP bridge is the wire protocol the web app speaks. Treat the mod/sidecars as a fixture the web app evolves against, not as the product's primary artifact. Layer 2 for F (repo layout) and E (mod evolution) locks the exact subdirectory split (e.g., `web/`, `discord-bot/`, `gateway/`, `mod/`, `mcp-sidecar/`, `docs/`).
 
 ### Workstream I — Product Packaging, Distribution & Docs
 **Goals**
@@ -595,8 +595,10 @@ Each agenda below is the **starting list** for that workstream's Layer 2 deep-di
 
 Append-only record of vision updates from the user.
 
-- **2026-04-18 — Session 1, repo placement decision:**
-  - **This repo (`AIminecraftBOT`) is the home of the web-app + Discord control plane** (Workstream J) — the Hermes-agent / openclaw-style product codebase. The existing Fabric AI Companion mod + MCP sidecars here become siblings in a mono-repo layout by default; the exact subdirectory split is a Workstream F/E Layer 2 question.
+- **2026-04-18 — Session 1, repo placement + core-focus decision:**
+  - **This repo (`AIminecraftBOT`) is the home of the agent-style web app + Discord control plane** (Workstream J) — the Hermes / openclaw-style product codebase. That web app is the **core product deliverable** built here.
+  - The existing Fabric AI Companion mod + MCP sidecars in this repo are retained as the **reference test target / example** the web app is developed against (a ready-made in-world counterpart, with its MCP bridge as the wire protocol). They are a fixture, not the primary product artifact.
+  - Workstreams F (repo layout) and E (mod evolution) handle the subdirectory split at Layer 2.
 - **2026-04-18 — Session 1, curation + thesis update:**
   - Reference pack spans **multiple tech tiers** (Powah, Mekanism, etc.) alongside Create/Aeronautics, with a **variety-over-depth** curation philosophy ("one winner per niche unless meaningfully different").
   - **Difficulty-modifier mods** are a first-class content pillar; the difficulty ramp is tuned against questbook beats.
