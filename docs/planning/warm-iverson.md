@@ -1010,6 +1010,8 @@ Append-only record of vision updates from the user.
 - **2026-04-18 — Session 1, commercial-safety filter removed:**
   - Explicit policy: research, tool selection, and design choices **must not pass on better feature-covering options because of commercial redistribution or monetization concerns**. Features beat commercial-safety. ARR mod licenses, provider-API commercial restrictions, and similar are not blockers.
   - Workstream K narrowed to **personal-use + friend-group distribution compliance only**. Trademark audit, hosted-content takedown, and commercial-redistribution matrix all dropped (deferred to Day+100 or retired).
+- **2026-04-18 — Session 1, standalone research reports written:**
+  - Each of the six Layer-2 research sweeps now archived as a standalone file under `docs/planning/research/` with full source citations preserved (README indexes them). Plan-file summaries link back to each.
 - **2026-04-18 — Session 1, Layer-2 research sweep completed (6 parallel agents):**
   - **Workstream A (loader/version)**: primary = **NeoForge 1.21.1** (~80% confidence), runner-up Forge 1.20.1. Fabric 1.21 disqualified (Create frozen on Fabric 1.20.1). Biggest risk: **Villager Recruits has no 1.21.1 NF port as of today** — must substitute or sponsor a port. Bot-client concern largely moot: Mineflayer is protocol-level and loader-agnostic.
   - **Workstream B (quests)**: primary = **FTB Quests + FTB XMod Compat + FTB Quests Optimizer + Quests Freeze Fix**; runner-up Questify; reject BetterQuesting (no 1.21, ARR) and Heracles (narrative-biased). Solo-dev authoring pipeline = YAML → codegen → SNBT → git, with Cytoscape.js graph editor as Day+1 web-UI path.
