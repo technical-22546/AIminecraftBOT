@@ -1011,6 +1011,29 @@ Append-only record of vision updates from the user.
 - **2026-04-18 — Session 1, commercial-safety filter removed:**
   - Explicit policy: research, tool selection, and design choices **must not pass on better feature-covering options because of commercial redistribution or monetization concerns**. Features beat commercial-safety. ARR mod licenses, provider-API commercial restrictions, and similar are not blockers.
   - Workstream K narrowed to **personal-use + friend-group distribution compliance only**. Trademark audit, hosted-content takedown, and commercial-redistribution matrix all dropped (deferred to Day+100 or retired).
+- **2026-04-18 — Session 1, research-output deltas from assumption walk:**
+  - **Research #02 (AI-agent landscape) — materially changed.** Path-B decision on the existing Fabric mod voids the "reskin existing mod as narrator/architect" recommendation. The helper/overseer role becomes a **greenfield external build** (Node/Python + Mineflayer + MCP + DGX Spark inference), not a reskin. Build scope grows. Recruits→Guard Villagers swap already logged.
+  - **Research #05 (Self-healing) — minor.** Sinytra Connector adds its own configs + Fabric-mod configs loaded under it; config-drift hashing scope must include these.
+  - **Research #06 (Control plane) — minor reinforcement.** MCP-over-RCON is now the **only** MC-integration path; no parallel existing-mod MCP channel. Recommendation still stands.
+  - **Research #01 (Loader) — unchanged pick, small caveat.** Sinytra Connector server-side was not evaluated in the original report; added as a known ops complexity on top of the NeoForge 1.21.1 pick.
+  - **Research #03 (Quests), #04 (Textures) — unchanged.**
+  - **Re-research triggered** (2026-04-18, second sweep): (R1) greenfield external helper architecture, (R2) NF 1.21.1 + Sinytra + Mineflayer compat, (R3) Guard Villagers capability depth vs Recruits, (R4) existing-mod subsystem port audit (Workstream E codebase).
+- **2026-04-18 — Session 1, server software topology (pre-ratifying NF 1.21.1):**
+  - Decision: **NeoForge + Sinytra Connector** server-side (not vanilla NF). Small ops tax accepted in exchange for keeping Fabric-only perf/content mod optionality reachable as fallback. Lithium (Fabric, server-side) can ride Sinytra if Radium Reforged doesn't meet perf targets on the pack.
+- **2026-04-18 — Session 1, Create: Aeronautics maturity (pre-ratifying NF 1.21.1):**
+  - Decision: **ride bleeding edge** on Aeronautics during v0 testing; the final version pinned for Release is picked during the testing phase based on observed stability. Latest-available = default, swap backward if a bug surfaces; swap forward if a better patch lands before Release.
+- **2026-04-18 — Session 1, shader requirement (pre-ratifying NF 1.21.1):**
+  - Decision: **Distant Horizons is the visual baseline for all 10 players; shaders are per-player optional.** Reduces ops burden around the known DH-vs-Iris NeoForge 1.21.1 breakage cycles; we still pin the shader-pack version for players who opt in, but a DH-only update path is the default.
+- **2026-04-18 — Session 1, Villager Recruits substitution (pre-ratifying NF 1.21.1):**
+  - Decision: **substitute Recruits with Guard Villagers** (1.21.x NF available) for defensive/armed-NPC needs. Peer bot-players and Joe AI agents take the tactical/squad-command layer that Recruits would have occupied. Recruits re-enters the shortlist only if a 1.21.1 NF port lands and is stable. This unblocks the loader pick.
+- **2026-04-18 — Session 1, existing-mod disposition (pre-ratifying NF 1.21.1):**
+  - Decision: **leave the existing Gemini AI Companion mod on Fabric 1.21.1 as-is**; it drops out of the Create Remastered production loop. No port to NeoForge. Bots run **protocol-level via Mineflayer** and the helper role is rebuilt as an **external Node/Python process** (MCP + Mineflayer + local inference on DGX Spark).
+  - **Workstream E (Existing AI Mod Audit & Evolution) transforms**: goal is no longer "refactor/port"; it is now "select which subsystems are worth porting into the external Joe AI services, and which are retired." The existing codebase becomes historical context + a reference implementation rather than the foundation.
+  - Cascading implications:
+    - **Voice pipeline (TTS+STT)** for Release must be built externally from scratch — cannot build on the existing mod's voice subsystem.
+    - **In-world client-side UI** (build-preview highlights, undo overlays) is gone unless re-implemented as a small lightweight client-side mod. Open question: do we build a minimal NeoForge client-side "Joe AI overlay" mod, or route all UX through Discord + web app?
+    - **MCP bridge** stays valuable as a concept — it gets rebuilt pointing at Mineflayer + server RCON, not at an in-world mod.
+    - **This repo** stops being the canonical Create Remastered tree; it becomes a historical artifact. Phase-2 repo split decision (Workstream F) gains urgency.
 - **2026-04-18 — Session 1, product + agent naming:**
   - Product renamed from working title "Warm Iverson" to **Create Remastered**. AI agent layer branded **Joe AI** (the helper/overseer + peer-bot persona players interact with). Sub-roles like Joe-Builder / Joe-Scout / Joe-Quartermaster thread back to the Joe AI brand.
   - Trademark overlap with the Create mod is accepted under the non-commercial, friend-group-only scope. Day+100 monetization would force a rename.

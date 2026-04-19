@@ -18,6 +18,26 @@ the subagent for its topic, preserving every URL citation and open question.
 | 05 | [self-healing-ops.md](05-self-healing-ops.md) | C | Pterodactyl + Spark + SparkWebAPI + FTB Backups 2 + LXC watchdog sidecar + bespoke diagnostic agent. |
 | 06 | [control-plane-refs.md](06-control-plane-refs.md) | J | Next.js 16 + shadcn + LangGraph + Redis Streams + Auth.js + discord.js + BlueMap + iframe Pterodactyl. |
 
+## Status after assumption walk (2026-04-18)
+
+After ratifying assumptions for the loader decision, these reports have deltas:
+
+| # | Status | Delta |
+|---|---|---|
+| 01 | Standing | Sinytra Connector added to server stack — not evaluated in original report; small ops complexity on top of NF 1.21.1 pick. |
+| 02 | **Materially changed** | Helper role is no longer "reskin existing Gemini mod" — user dropped the existing Fabric mod from production (path B). Helper becomes a **greenfield external build** (Node/Python + Mineflayer + MCP + DGX Spark). Recruits → Guard Villagers. See re-research 07/09/10. |
+| 03 | Standing | Loader pick confirms NF 1.21.x/1.20.1 assumption. |
+| 04 | Standing | — |
+| 05 | Minor | Config-drift hashing must include Sinytra + Fabric-mod configs under Sinytra. |
+| 06 | Minor | MCP-over-RCON is now the only MC-integration path; no parallel existing-mod MCP channel. Rec still valid. |
+
+### Re-research sweep (pending / in progress)
+
+- **R1 (follow-up to #02):** Greenfield external-helper architecture without an in-world mod of our own.
+- **R2:** NeoForge 1.21.1 + Sinytra Connector + Mineflayer compat in 2026.
+- **R3:** Guard Villagers capability depth on 1.21.1 NF vs what Recruits would have covered.
+- **R4:** Existing-mod subsystem port audit (Workstream E) — what subsystems from this repo are worth porting OUT into external Joe AI services.
+
 Each report ends with **open questions** — those are queued for the per-workstream Layer-2 deep-dive sessions.
 
 See also [ASSUMPTIONS.md](ASSUMPTIONS.md) — the full catalogue of assumptions baked into these reports (user-stated facts, Layer-1 derivations, parent-agent prompt context, subjective agent judgment calls, silent inferences, methodology choices, and deliberate exclusions).
