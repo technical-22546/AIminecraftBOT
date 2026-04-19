@@ -1011,6 +1011,15 @@ Append-only record of vision updates from the user.
 - **2026-04-18 — Session 1, commercial-safety filter removed:**
   - Explicit policy: research, tool selection, and design choices **must not pass on better feature-covering options because of commercial redistribution or monetization concerns**. Features beat commercial-safety. ARR mod licenses, provider-API commercial restrictions, and similar are not blockers.
   - Workstream K narrowed to **personal-use + friend-group distribution compliance only**. Trademark audit, hosted-content takedown, and commercial-redistribution matrix all dropped (deferred to Day+100 or retired).
+- **2026-04-18 — Session 1, A-2 compat verification sweep (Pass 1, 5 parallel agents):**
+  - **Biggest findings:** **Drop entire Tinkers' Construct tier** (no NF 1.21.1 port; Silent Gear already locked covers the niche). **Drop entire Thermal series** (6 mods — TeamCoFH has not ported). **Drop Immersive Geology** (no NF 1.21.1). **Drop Ad Astra** (upstream issues open, no AR fallback).
+  - **Key SWAPs:** Scaling Health → **Silent's Power Scale 0.3.1**; Bigger Reactors → **Extreme Reactors**; Lambdynlights → **Dynamic Lights Reforged (NF native)**; Mod Menu → **Configured**; Trinkets → **Curios**; Chisel Modern → **Chisel Reborn**; Shulker Loot Drops → **Shulker Drops Two**.
+  - **Version pins (mandatory):** Balm 21.1.x (not 21.11.x); Farmer's Delight 1.2.9 (1.2.11 breaks Create: Integrated Farming); Supplementaries ≥3.0.40 (pre-3.0.30 breaks Mineflayer); AppleSkin 3.0.5 (not 3.0.8); IE 12.4.2-194 + IP 4.4.1-37; Apotheosis modules-only (drop Apothic Enchanting for no-magic); Macaw's / Xaero / EMI / RFTools — version-line-aligned.
+  - **Pick one:** SereneSeasons XOR Agricarnation; Graveyard XOR Graveyard Overhaul; Hordes XOR Undead Nights; AE2 over Refined Storage; MVS canonical villages (disable T&T + RS variants).
+  - **Tune worldgen spacing:** WDA ≥40 chunks; T&T villages ≥32; Structory Cities ≥20.
+  - **Critical IF-THEN gates:** Hordes → REQUIRE In Control! · AE2 → drop RS · Twilight Forest → gate portal in quests · Carry On → blacklist Create BEs.
+  - **Revised ship count:** ~281 strawman → ~240 SHIP + ~15 QA-MAYBE + ~40 SKIP. Full report in `docs/planning/a2-compat-pass1.md`.
+
 - **2026-04-18 — Session 1, no-magic policy + follow-ups + tech tier:**
   - User policy: **absolutely no magic mods.** No spell/wand/altar/familiar/ritual/enchant-extension mods. Tier 8 removed entirely from A-2 strawman. Cross-tier removals: All The Arcanist Gear (ATM addon), Ars Nouveau bridges (Ars Creo, Minecolonies-AN). Apotheosis initially removed, then **restored** (per follow-up) — treated as attribute/affix/boss gameplay, not magic; enchantment module configurable off if it drifts toward magic.
   - **Tinkers' Construct line added** to Tier 10 Utility per user direction (flag `?` — NF 1.21.1 port uncertain from memory; fallback Silent Gear covers similar ground).
