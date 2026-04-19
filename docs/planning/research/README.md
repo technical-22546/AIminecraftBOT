@@ -39,6 +39,10 @@ After ratifying assumptions for the loader decision, these reports have deltas:
 | 08 | [nf-sinytra-mineflayer-compat.md](08-nf-sinytra-mineflayer-compat.md) | A+D | **Conditionally viable**. Sinytra 2.0.0-beta.14. **Critical: Lithium via Sinytra NOT supported — use Radium Reforged (NF-native)**. Mineflayer needs `physicsEnabled:false` workaround. Anticheat mods blacklisted. |
 | 09 | [guard-villagers-depth.md](09-guard-villagers-depth.md) | A+D | Guard Villagers 2.4.7 (Mar 2026) on NF 1.21.1 is active. Covers hiring + combat + defense but no squad UI / formations / ranks / banners — Joe AI fills those via peer bots + KubeJS. |
 | 10 | [existing-mod-port-audit.md](10-existing-mod-port-audit.md) | E | Top 5 port priorities: Build Planner, MCP Bridge surface, Batch executor, Undo, Vision. Retire: highlights (→ Litematica), Fabric wiring, in-game setup wizard (→ web app). |
+| 11 | [terrain-worldgen.md](11-terrain-worldgen.md) | A | Midgard/Middangard verified Forge 1.20.1-only (MIT). Substitute on NF 1.21.1 = **Tectonic + Terralith**. User pivoted to porting Middgard themselves (decompile path). |
+| 12 | [economy-npc-ai-mods.md](12-economy-npc-ai-mods.md) | A+D+G | Monopoly stack: Minecolonies + War 'N Taxes + Create: Numismatics + SDMShop + Stock Market + Auction House Plus + FTB Chunks + Mindcraft-CE. Skip: AW3, Create: Connected, OPaC. |
+| 13 | [atm-verify.md](13-atm-verify.md) | A+B+G | AllTheModium 3.0.0 native NF 1.21.1, no Sinytra needed. Tier-gate: Overworld → Nether Vibranium → The Other → The Beyond. Disable DH for The Beyond. |
+| 14 | [nether-end-overhauls.md](14-nether-end-overhauls.md) | A | Lock **Incendium 5.4.12 + Nullscape 1.2.19**. Preserves vanilla crimson/warped → ATM Vibranium + Piglich intact. Skip BetterNether (conflict) + Stellarity (overlap). |
 
 Each report ends with **open questions** — those are queued for the per-workstream Layer-2 deep-dive sessions.
 

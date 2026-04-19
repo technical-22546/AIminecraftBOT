@@ -1011,6 +1011,40 @@ Append-only record of vision updates from the user.
 - **2026-04-18 — Session 1, commercial-safety filter removed:**
   - Explicit policy: research, tool selection, and design choices **must not pass on better feature-covering options because of commercial redistribution or monetization concerns**. Features beat commercial-safety. ARR mod licenses, provider-API commercial restrictions, and similar are not blockers.
   - Workstream K narrowed to **personal-use + friend-group distribution compliance only**. Trademark audit, hosted-content takedown, and commercial-redistribution matrix all dropped (deferred to Day+100 or retired).
+- **2026-04-18 — Session 1, monopoly-pivot + Section C/D/Fresh walkthrough (35 + 5 + 4 decisions locked, fourth research sweep):**
+
+  **Theme pivot.** Reference pack pivots from AoE/AoK-with-Recruits to **monopoly-style capitalist empire** (each player governs an empire, races to build wealth, open-ended sandbox). AoE/AoK theme parked until Recruits ports to NF 1.21.1.
+
+  **Map scale corrected.** Play zone = **192 chunks (~3,072 blocks)** wide, not blocks. Continent-scale; meaningful for DH + Aeronautics + multi-empire spread.
+
+  **Section C (5 of 5 locked):**
+  - C1 = NeoForge 1.21.1 ratified as A-1 loader (with Forge 1.20.1 as tested fallback).
+  - C2 = build the ~200-line server-side-only **SVC bridge jar** for Release (full voice parity Discord + SVC).
+  - C3 = **decompile + port Middgard** datapack from 1.20.1 Forge JAR (MIT license, SbeevYT author). User-driven port. Tectonic + Terralith fallback if effort proves heavy.
+  - C4 = **economy stack accepted wholesale** + SDMShop added explicitly.
+  - C5 (8 sub-questions) = Millénaire defer to v0; open-ended sandbox win condition; consensual PvP only; local LLM primary + frontier API burst budget; Create-native scheduling (Joe AI dispatches, never pilots vehicles); pure role-play + Numismatics for share/loan mechanics; FTB Chunks + FTB Teams for parcels; drop Create: Connected (was R5's agenda, never user-requested).
+
+  **Sinytra Connector decision: KEEP.** User policy = always include + ConnectorExtras. Accept ops tax. Lithium-via-Sinytra is impossible; use **Radium Reforged** NF-native instead.
+
+  **Section D (35 of 35 locked):**
+  - **D Joe AI architecture (D.1–D.9):** 2–3 peer bots + 3–4 helpers (~5–7 total) | Cast: **Iverson the Magnate, Vanderbilt the Tycoon, Cassandra the Prospector** (peer rivals); **Winston the Banker, Ophelia the Quartermaster, Reginald the Auditor, Juno the Herald** (helpers); reserved: Otis the Diplomat | Distribution = Prism zip exported by user | Languages = **Node + Python split** | Permissions = per-role granular (peer = player-equivalent, helpers = scoped elevated) | Memory = **per-day in-game journal entries** (diegetic; KubeJS serializes signed books) | Sensitive zones = **economic commons free-for-all + building requires FTB Chunks claim purchase via Numismatics** | Audit log = 7 days | Override = Discord-only with role-delegated permissions.
+  - **D Content (D.10–D.12):** Questbook = **9 tier-progression chapters** (Survival start → Late-game capital, mechanical only, no story) | Texture style = **Industrial / Gilded-Age** anchored on user's existing custom modpack as LoRA seed set | Scripting = **KubeJS only** (no CraftTweaker).
+  - **D Hosting / Ops / Workflow (D.16–D.19):** Backups = **layered Pterodactyl 4hr×6 daily rotation + LXC daily×2** | Uptime = 24/7 best-effort, Discord-announced downtime | Secrets = **OpenBao** (already deployed) | Versioning = **single monorepo tag**.
+  - **D Test / Sandbox (D.20–D.22):** Sandbox topology = always-on single LXC | Flake tolerance = phased B→C→D over lifecycle | Promotion approval = tests pass + user explicit sign-off.
+  - **D Cross-mod (D.13–D.15):** Balance = loose for Release, tight on monopoly layer for long-term | Pacing = ATM-standard | Recipe browser = **EMI + moderate hiding**.
+  - **D Web App / Docs (D.23–D.25):** Docs = defer to Day+1 (markdown in repo for now) | Lifecycle UI = none in web app (Pterodactyl tab stays separate) | KubeJS editor = none in web app (VSCode + git only).
+  - **D Performance / Security / UX (D.26–D.31):** SLOs = defer (measure in v0, target ATM-typical long-term) | Threat model = minimal (trust the group) | First-login = vanilla drop-in (trust friends know MC) | Agent discovery = chat commands + Discord | Etiquette = role-differentiated (helpers ambient, peer bots active personalities) | Accessibility = defer Day+1.
+  - **D World lifecycle (D.32–D.34):** Update cadence = ad-hoc | Archive horizon = current campaign only (48hr backup window only) | Migration = ad-hoc.
+  - **D Resource sizing (D.35):** Locked baseline LXC sizing — totals ~45GB RAM / ~26 vCPU / ~350GB disk on Proxmox (excluding DGX Spark for inference).
+
+  **Fresh open items (4 of 4 locked, two with verification sweeps):**
+  - **F1 terrain refinement: defer** until Middgard port outcome known.
+  - **F2 ATM verified (sweep R-ATM):** AllTheModium 3.0.0 native NF 1.21.1 confirmed. Tier-gate Overworld → Nether Vibranium → The Other → The Beyond. Disable DH for The Beyond (void LOD artifacts). KubeJS ATM↔Create recipes added to B+G work queue. Locked into stack.
+  - **F3 Nether/End overhauls (sweep R-NetherEnd):** **Lock Incendium 5.4.12 + Nullscape 1.2.19** (Stardust Labs, both refreshed March 2026). Preserves vanilla crimson/warped → ATM Vibranium + Piglich intact. Skip BetterNether (conflict) + Stellarity (overlap). Optional adds: Nether Depths Upgrade, YUNG's Better Nether Fortresses.
+  - **F4 Canary perf compat (sweep R-Canary, advisory only):** Mekanism is the more likely conflict pairing, not DH. **Tentative: skip Canary from Release stack.** Rely on **ModernFix + FerriteCore + ScalableLux + Embeddium + Radium Reforged**. If v0 reveals need for Canary, bisect against Mekanism in throwaway profile.
+
+  **Standalone reports archived this session:** 11 (terrain), 12 (economy), 13 (ATM verify), 14 (Nether/End). All in `docs/planning/research/`.
+
 - **2026-04-18 — Session 1, second research sweep results (R1–R4):**
   - **R1 greenfield helper architecture** (Workstreams D+E): recommended stack = **Litematica/Forgematica + Syncmatica** (build preview), **BlueMap markers** (undo overlays + fallback), **prismarine-viewer** (bot vision), **discord.js voice + faster-whisper + piper1-gpl** (voice pipeline), **Auth.js v5 over Discord OAuth** (permissions). Node services named: `joe-schematic-emitter`, `joe-bluemap-gateway`, `joe-vision`, `joe-voice`, `joe-web`. **One caveat:** in-world voice (Simple Voice Chat) requires a ~200-line server-side-only SVC-API bridge jar — no UI, no mixin, no client classes. **User decision needed:** does this qualify under "no in-world mod of our own" rule? If not, SVC goes Day+1 and Discord-only is Release.
   - **R2 NF+Sinytra+Mineflayer compat** (Workstreams A+D): verdict = **conditionally viable**; production needs a hardening checklist. Latest Sinytra = 2.0.0-beta.14 (Feb 2026). **Critical finding that flips the Sinytra decision: Sinytra explicitly does NOT support Lithium.** Use **Radium Reforged** (NF-native Lithium port) + Canary + ScalableLux. Mineflayer needs `physicsEnabled:false` during 1.21 config phase, custom-payload-error suppression, ≥1.5s stagger between bot logins, no hot-reconnect under 5s. NF has no built-in bot detection. **Mod blacklist** (avoid in A-2 shortlist): all client-list anticheats, Grim-style ACs, EpicFight, older Supplementaries, MidnightControls, Lithium-via-Sinytra. Create/Aeronautics/KubeJS/FTBQ/Minecolonies/Guard Villagers/DH/Iris/Embeddium/Spark are safe. Minecolonies+Create needs an integration datapack.
