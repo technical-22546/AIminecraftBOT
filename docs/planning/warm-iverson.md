@@ -1011,10 +1011,11 @@ Append-only record of vision updates from the user.
 - **2026-04-18 — Session 1, commercial-safety filter removed:**
   - Explicit policy: research, tool selection, and design choices **must not pass on better feature-covering options because of commercial redistribution or monetization concerns**. Features beat commercial-safety. ARR mod licenses, provider-API commercial restrictions, and similar are not blockers.
   - Workstream K narrowed to **personal-use + friend-group distribution compliance only**. Trademark audit, hosted-content takedown, and commercial-redistribution matrix all dropped (deferred to Day+100 or retired).
-- **2026-04-18 — Session 1, no-magic policy + follow-ups:**
+- **2026-04-18 — Session 1, no-magic policy + follow-ups + tech tier:**
   - User policy: **absolutely no magic mods.** No spell/wand/altar/familiar/ritual/enchant-extension mods. Tier 8 removed entirely from A-2 strawman. Cross-tier removals: All The Arcanist Gear (ATM addon), Ars Nouveau bridges (Ars Creo, Minecolonies-AN). Apotheosis initially removed, then **restored** (per follow-up) — treated as attribute/affix/boss gameplay, not magic; enchantment module configurable off if it drifts toward magic.
   - **Tinkers' Construct line added** to Tier 10 Utility per user direction (flag `?` — NF 1.21.1 port uncertain from memory; fallback Silent Gear covers similar ground).
-  - Net strawman change: ~241 → ~250.
+  - **Tier 14 Standalone Tech added** (~25 mods): Immersive Engineering + Petroleum (Gilded-Age thematic priority), Industrial Foregoing, Thermal series (6), AE2 or Refined Storage (recommend AE2 for monopoly theme), Flux Networks, XNet, Laser IO, Pipez, RFTools series (6), Actually Additions, Modular Machinery Reborn, Bigger Reactors, Ender IO, CC: Tweaked + Advanced Peripherals. Skip: Project E (EMC trivializes economy), Tech Reborn (Mekanism overlap), GregTech (too opinionated with Create).
+  - Strawman total now ~275.
 
 - **2026-04-18 — Session 1, monopoly-pivot + Section C/D/Fresh walkthrough (35 + 5 + 4 decisions locked, fourth research sweep):**
 

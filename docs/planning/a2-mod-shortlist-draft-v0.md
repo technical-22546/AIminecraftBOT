@@ -363,6 +363,60 @@ Beyond what's locked (Factory Must Grow, C&A, Railways Navigator, Additional Log
 
 ---
 
+## Tier 14 — Standalone Tech mods (~20)
+
+Beyond locked Powah + Mekanism and Create ecosystem. Targets: Gilded-Age industrial thematic fit + ATM-scale tech breadth + monopoly-supporting automation.
+
+**Priority / thematic fit:**
+- **Immersive Engineering** — ? — steampunk/industrial aesthetic, perfect Gilded-Age fit. Highest theme priority.
+- **Immersive Petroleum** — ? — IE addon, oil/fuel supply chains (pairs with Create: Factory Must Grow)
+- **Industrial Foregoing** — ? — general tech workhorse
+
+**Thermal series:**
+- Thermal Foundation — ?
+- Thermal Expansion — ?
+- Thermal Dynamics — ?
+- Thermal Innovation — ?
+- Thermal Cultivation — ?
+- Thermal Integration — ?
+
+**Storage & logistics:**
+- Applied Energistics 2 — ? — digital storage + auto-crafting endgame
+- AE2 Additions / Things — ? — common AE2 expansion
+- Refined Storage — ? (pick AE2 OR RS; AE2 is monopoly-theme-friendly because of complexity gate)
+- Flux Networks — ? — wireless FE transfer
+- XNet — ? — cable-less logic transport
+- Laser IO — ? — laser item/fluid/energy routing
+- Pipez — ? — unified pipes
+- Modular Routers — ? (already in Tier 6 as alternate; keep single entry)
+
+**Utility:**
+- RFTools Base — ?
+- RFTools Power — ?
+- RFTools Builder — ?
+- RFTools Storage — ?
+- RFTools Utility — ?
+- RFTools Control — ?
+- Actually Additions — ?
+- Modular Machinery Reborn — ? — KubeJS-friendly multiblock framework (useful for custom monopoly-specific machines)
+
+**Late-game / power:**
+- Bigger Reactors — ? — nuclear late-game
+- Ender IO — ? — combined tech/storage (if AE2 also in, be selective)
+
+**Programmable automation:**
+- CC: Tweaked — ? — programmable computers (natural for tycoon meta — players script automation)
+- Advanced Peripherals — ? — CC: Tweaked expansion
+
+**Skip:**
+- Project E / ProjectE — infinite EMC trivializes economy, anti-monopoly-theme
+- Tech Reborn — largely redundant with Mekanism on NeoForge
+- GregTech Community Edition — too opinionated, conflicts with Create as pack anchor
+
+Balance-adjacent rec: pick one of AE2 or Refined Storage, not both. AE2 recommended for monopoly-theme (complexity = gate, fits capital-investment progression). Ender IO's storage overlaps with both; include only if its tech features are wanted.
+
+Count as drafted: ~25 (count drops if AE2/RS/Ender IO conflicts resolved).
+
 ## Draft totals
 
 | Tier | Budget | Drafted |
@@ -381,9 +435,10 @@ Beyond what's locked (Factory Must Grow, C&A, Railways Navigator, Additional Log
 | 11 Difficulty | 5 | 5 *(Apotheosis restored)* |
 | 12 Compat | 9 | ~9 *(Create+TiC bridge added)* |
 | 13 Create addons | 15 | ~15 |
-| **Grand total (estimated)** | **~250** | **~250** |
+| 14 Standalone Tech | 25 | ~25 (IE, IF, Thermal, AE2, RFTools, CC: Tweaked, etc.) |
+| **Grand total (estimated)** | **~275** | **~275** |
 
-Net from prior version: magic cut ~14, Tinkers' + Apotheosis restored ~8. Still below 500 ceiling; ATM-scale packs commonly run 350–400, leaving capacity for user adds.
+Net from prior version: +25 standalone tech. Still below 500 ceiling; ATM-scale packs commonly run 350–400, leaving capacity for user adds.
 
 ---
 
