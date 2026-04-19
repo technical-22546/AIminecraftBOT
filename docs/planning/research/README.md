@@ -1,6 +1,11 @@
-# Warm Iverson — Layer-2 Research Reports
+# Create Remastered — Layer-2 Research Reports
 
-Six parallel research sweeps run on 2026-04-18 as input to the Warm Iverson plan
+> **Naming note:** these reports were written under the working title **"Warm Iverson"**
+> on 2026-04-18. The product was renamed to **Create Remastered** (with AI layer
+> **Joe AI**) later the same day. Reports are preserved as dated archives — read
+> "Warm Iverson" throughout as "Create Remastered."
+
+Six parallel research sweeps run on 2026-04-18 as input to the Create Remastered plan
 (`../warm-iverson.md`). Each file below is the full, untrimmed report produced by
 the subagent for its topic, preserving every URL citation and open question.
 

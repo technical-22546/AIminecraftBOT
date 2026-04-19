@@ -1,4 +1,4 @@
-# Warm Iverson — Claude-Agented Create Modpack SMP
+# Create Remastered — Claude-Agented Create Modpack SMP
 
 _Long-term research & planning strategy. Living document. No implementation happens in this channel — each workstream spawns its own execution plan in future sessions._
 
@@ -18,7 +18,8 @@ This channel is reserved for planning only. Implementation is out of scope here;
 
 ## Product Framing
 
-**Name (working title):** _Warm Iverson_ — a framework for building large Minecraft modpacks with AI.
+**Product name:** **Create Remastered** — a framework for building large Minecraft modpacks with AI.
+**AI agent layer / on-screen persona:** **Joe AI** — the name used for the helper/overseer + peer-bot agent characters players interact with in-game and through the Discord control plane. "Joe" is a product-level brand; individual agent roles can still have their own sub-names (e.g., "Joe-Builder", "Joe-Scout", "Joe-Quartermaster") that thread back to Joe AI.
 
 **What it is:** an end-to-end kit for authoring, playtesting, operating, and iterating on ambitious modpacks. Not just a pack template — a full toolchain plus the human-plus-AI process around it.
 
@@ -28,11 +29,11 @@ This channel is reserved for planning only. Implementation is out of scope here;
 - **P3 — Serious/curated publisher.** Targets CurseForge/Modrinth audiences. Needs release discipline, license hygiene, content originality, QA rigor.
 
 **Central thesis (why this product exists):**
-ATM-scale, variety-first modpacks are _possible_ (ATM proves it) but today require ATM-level staffing and tacit knowledge to ship. Most teams that try fail on performance, cross-mod integration debt, or content scope. **Warm Iverson's job is to make that class of pack buildable repeatably by small teams** — opinionated methodology + reusable tooling + an AI co-workforce that helps author, test, and operate the pack.
+ATM-scale, variety-first modpacks are _possible_ (ATM proves it) but today require ATM-level staffing and tacit knowledge to ship. Most teams that try fail on performance, cross-mod integration debt, or content scope. **Create Remastered's job is to make that class of pack buildable repeatably by small teams** — opinionated methodology + reusable tooling + an AI co-workforce that helps author, test, and operate the pack.
 
 **Core value propositions:**
 - **Methodology** — the two-layer interview process (see below), codified as reusable templates so a new modpack author can sit down and drive themselves through it.
-- **Launcher** _(Day+1)_ — a first-class launcher (Prism-/Modrinth-class), tailored to Warm Iverson packs, handling install, Java, client/server split, shader/DH presets, and launch of bots. MVP uses existing launchers (Prism/Modrinth/CurseForge) with exported manifests.
+- **Launcher** _(Day+1)_ — a first-class launcher (Prism-/Modrinth-class), tailored to Create Remastered packs, handling install, Java, client/server split, shader/DH presets, and launch of bots. MVP uses existing launchers (Prism/Modrinth/CurseForge) with exported manifests.
 - **Pack creator** — CurseForge-like authoring workflow, driven through the web app, that builds pack manifests, enforces the variety-over-depth curation rules, and pushes to the chosen distribution channel.
 - **Image / texture designer** — a dedicated UI for the texture prompt library: author prompts, generate, evaluate, diff, and **assign** outputs to specific blocks/items/entities/GUIs.
 - **Terrain generator interviewer** — interview-driven worldgen design.
@@ -69,7 +70,7 @@ ATM-scale, variety-first modpacks are _possible_ (ATM proves it) but today requi
 - **Commercial-safety as a design filter** — **explicitly disallowed**. Research and tool-selection must not pass on a better feature-covering option because its license, provider ToS, or redistribution terms would be awkward under commercialization. **Features beat monetization-readiness**. Mods with ARR licenses, generative-image APIs with commercial-use restrictions, or Minecraft hosting ToS that forbid resale are all acceptable here — we are not selling. Workstream K narrows to **personal-use + friend-group distribution compliance only**; commercial-redistribution prep is out of scope until/unless Day+100 reopens it.
 
 **Previously-excluded, now IN scope (but tagged Day+1):**
-- A **launcher** — upgraded from "integrate with existing" to "ship our own, Prism-/Modrinth-class, tuned for Warm Iverson packs" as a **Day+1 output**. MVP exports manifests that existing launchers consume.
+- A **launcher** — upgraded from "integrate with existing" to "ship our own, Prism-/Modrinth-class, tuned for Create Remastered packs" as a **Day+1 output**. MVP exports manifests that existing launchers consume.
 
 ## Project Constraints (resources / timeline)
 
@@ -82,9 +83,9 @@ ATM-scale, variety-first modpacks are _possible_ (ATM proves it) but today requi
 - **Pack theme / narrative**: **none — quests are purely mechanical gameplay milestones** (tier gates, integration proofs, progression unlocks). No storyline, no setting fiction, no narrative thread. Workstream B's questbook design targets clean mechanical pacing and tier-unlock logic; texture style (B) and worldgen curation (A) are aesthetic-cohesion targets, not narrative ones.
 - **Team**: **solo — the user only**. Every workstream is ultimately owner-operated. Practical consequences:
   - The two-layer interview methodology is self-interview; this plan file is the single source of truth for decisions made.
-  - 2–4 month Release window is only plausible because Warm Iverson itself is an AI-assisted dev loop — Claude takes the co-builder role the user would otherwise hire for. Scope discipline (v0 → Release → Day+1) is not negotiable.
+  - 2–4 month Release window is only plausible because Create Remastered itself is an AI-assisted dev loop — Claude takes the co-builder role the user would otherwise hire for. Scope discipline (v0 → Release → Day+1) is not negotiable.
   - No contributor onboarding, CI-review-gating, or cross-team coordination is designed for v0/Release. Workstream F (workflow) aims for "solo fast," with contribution machinery parked for Day+1 or later.
-- **Inference & hardware**: **self-hosted on an NVIDIA DGX Spark** with a "decent model" dedicated to Warm Iverson agents. This changes several workstreams materially:
+- **Inference & hardware**: **self-hosted on an NVIDIA DGX Spark** with a "decent model" dedicated to Create Remastered agents. This changes several workstreams materially:
   - **LLM spend ≈ $0/month.** All default agent inference is local on the DGX Spark; cost is measured in GPU seconds, not dollars. Workstream D's cost ceiling (Foundational Decision #7) becomes a throughput/latency ceiling instead.
   - **Privacy footprint shrinks.** Player/world data stays on-prem by default (Workstream L). Hosted Claude / Gemini remain available as optional fallback or specialty routes, gated by explicit policy.
   - **Hardware topology is already defined by existing infrastructure.** The user operates a homelab with **multiple Proxmox hosts**. Concretely:
@@ -525,11 +526,11 @@ Workstream D must produce a **capability matrix** comparing each embodiment on: 
 | **AI Player mod** (shasankp000) | Fabric 1.21.1 → 1.21.6 | Move/mine/place/craft/combat/chat | No | Generic | Multiple | Ollama + OpenAI-API | MIT | Active |
 | **This repo's Gemini AI Companion** | Fabric 1.21.1 | Helper-role build-planner, highlights, undo, voice | Yes (screenshots) | Unclear | Single | Gemini + MCP | MIT | v1.3.2 |
 
-**Recommended embodiment mix for Warm Iverson:**
+**Recommended embodiment mix for Create Remastered:**
 
 1. **Peer bot-players (full range):** **Mindcraft-CE** on Node.js, **local Ollama or vLLM** on DGX Spark serving Qwen2.5-72B or Llama-3.3-70B for main-loop, **Gemini 2.5 Pro / Claude as fallback** for hard planning. Multi-profile spawning covers 2–3 concurrent peer bots. MIT license, loader-agnostic via Mineflayer protocol.
 2. **Deterministic verb floor:** under each LLM-driven peer bot, expose **Baritone** as a tool (`baritone:#goto`/`#mine`/`#build <schematic>`). Each peer bot runs as a headless Fabric client with Baritone + a small bridge mod. Rescues build/travel reliability for Create contraptions.
-3. **Helper / overseer (disembodied):** **Keep this repo's Gemini AI Companion** as-is. Reskin as the Warm Iverson narrator/architect. Already has voice, vision, build-preview, MCP, permissions.
+3. **Helper / overseer (disembodied):** **Keep this repo's Gemini AI Companion** as-is. Reskin as the Create Remastered narrator/architect. Already has voice, vision, build-preview, MCP, permissions.
 4. **Long-horizon colony work:** **Minecolonies** (1.21.1 NF) for background economy/village NPCs. Layer LLM commentary via its event bus for flavor narration — not full control.
 5. **Combat squads / escorts:** **Villager Recruits** for commanded parties (contingent on 1.21.1 NF port landing — see Workstream A loader risk).
 6. **Optional:** single **CustomNPCs** install for scripted quest-giver bodies with LLM-fed dialogue via HTTP.
@@ -661,7 +662,7 @@ This covers peer + helper + NPC-body roles without writing an agent framework fr
 **Goals**
 - Design the **web app** as the product's primary UI. First-class surfaces:
   - **Pack creator (CurseForge-class)**: mod-list curation with the variety-over-depth rules enforced inline, client/server split, version targets, publish to launcher + distribution channels.
-  - **Launcher integration**: launch humans and bots through the Warm Iverson launcher (see Workstream P), manage profiles, surface Java/shader/DH presets.
+  - **Launcher integration**: launch humans and bots through the Create Remastered launcher (see Workstream P), manage profiles, surface Java/shader/DH presets.
   - **Image / texture designer**: prompt authoring, generation run, side-by-side evaluation, block/item/entity **assignment** mapping, atlas/CTM/CIT emission.
   - **Terrain generator interviewer**: interview-driven worldgen designer — biomes, surface rules, structure density, dimension stack — producing concrete configs.
   - **Content authoring**: KubeJS recipe editor/linter; questbook chapter editor.
@@ -931,7 +932,7 @@ Each agenda below is the **starting list** for that workstream's Layer 2 deep-di
 - For every mod on the shortlist: do we have explicit permission to redistribute in a pack? CurseForge/Modrinth pack rules sufficient, or per-author reach-out needed?
 - Product code license preference (MIT, Apache-2, BSL, proprietary-then-open)?
 - Stance on AI-generated textures: who owns them, are we OK with provider-ToS constraints on commercial use, do we ship provenance metadata?
-- Product naming: avoid "Create" in the name to sidestep trademark? Working title "Warm Iverson" OK?
+- Product naming: **"Create Remastered" adopted 2026-04-18** with "Joe AI" as the AI-layer persona. Trademark overlap with the Create mod is acknowledged but accepted under the non-commercial, friend-group-only scope — no redistribution beyond the 10-player SMP and the user's private dogfood. Day+100 monetization would force a rename.
 - Attribution surface — where credits appear (pack loading screen, docs site, in-game `/credits`)?
 - Takedown process if a mod author objects post-launch?
 
@@ -1010,6 +1011,10 @@ Append-only record of vision updates from the user.
 - **2026-04-18 — Session 1, commercial-safety filter removed:**
   - Explicit policy: research, tool selection, and design choices **must not pass on better feature-covering options because of commercial redistribution or monetization concerns**. Features beat commercial-safety. ARR mod licenses, provider-API commercial restrictions, and similar are not blockers.
   - Workstream K narrowed to **personal-use + friend-group distribution compliance only**. Trademark audit, hosted-content takedown, and commercial-redistribution matrix all dropped (deferred to Day+100 or retired).
+- **2026-04-18 — Session 1, product + agent naming:**
+  - Product renamed from working title "Warm Iverson" to **Create Remastered**. AI agent layer branded **Joe AI** (the helper/overseer + peer-bot persona players interact with). Sub-roles like Joe-Builder / Joe-Scout / Joe-Quartermaster thread back to the Joe AI brand.
+  - Trademark overlap with the Create mod is accepted under the non-commercial, friend-group-only scope. Day+100 monetization would force a rename.
+  - Historical research reports under `docs/planning/research/` still reference "Warm Iverson" as the working title at time of writing; they're dated archives and kept as-is. Research README updated to note the rename.
 - **2026-04-18 — Session 1, standalone research reports written:**
   - Each of the six Layer-2 research sweeps now archived as a standalone file under `docs/planning/research/` with full source citations preserved (README indexes them). Plan-file summaries link back to each.
 - **2026-04-18 — Session 1, Layer-2 research sweep completed (6 parallel agents):**
@@ -1027,7 +1032,7 @@ Append-only record of vision updates from the user.
 - **2026-04-18 — Session 1, voice + geography lock:**
   - All 10 players are **local (same city)**, with **half being family in the same home as the server** — effectively LAN latency, no remote-region design concerns. Voice: the group has used **both Discord and Simple Voice Chat**; agent voice pipeline at Release must handle both (Discord bridge + in-game voice-mod hook). Primary path picked at go-live.
 - **2026-04-18 — Session 1, team lock:**
-  - **Solo build** — user only. The plan becomes the canonical record of every decision; Workstream F targets "solo fast" with contributor machinery parked. 2–4 month Release window is plausible only because Claude is the de-facto co-builder via Warm Iverson's own AI loop.
+  - **Solo build** — user only. The plan becomes the canonical record of every decision; Workstream F targets "solo fast" with contributor machinery parked. 2–4 month Release window is plausible only because Claude is the de-facto co-builder via Create Remastered's own AI loop.
 - **2026-04-18 — Session 1, hardware/inference lock:**
   - Self-hosted on an **NVIDIA DGX Spark** for inference + **multiple Proxmox hosts** for everything else. **LXC for agent runtimes**, **Pterodactyl on Proxmox for the SMP**, separate LXCs for control-plane gateway, Discord bot, web app, and sandbox instances. Default LLM spend ≈ $0/month (local); cost becomes GPU seconds/latency. Privacy footprint shrinks (data on-prem by default). Hosted Claude/Gemini remain optional fallbacks. Main perf concern: DGX Spark ↔ Proxmox-LXC network latency.
 - **2026-04-18 — Session 1, timeline lock:**
@@ -1061,7 +1066,7 @@ Append-only record of vision updates from the user.
 - **2026-04-18 — Session 1, curation + thesis update:**
   - Reference pack spans **multiple tech tiers** (Powah, Mekanism, etc.) alongside Create/Aeronautics, with a **variety-over-depth** curation philosophy ("one winner per niche unless meaningfully different").
   - **Difficulty-modifier mods** are a first-class content pillar; the difficulty ramp is tuned against questbook beats.
-  - **Central product thesis locked in**: ATM proves ATM-scale-with-variety is achievable; Warm Iverson's job is to make it **repeatable by small teams without ATM-level staffing**, leveraging methodology + tooling + AI co-workforce. User's enterprise-architecture background is the backing assumption that this scope is shippable.
+  - **Central product thesis locked in**: ATM proves ATM-scale-with-variety is achievable; Create Remastered's job is to make it **repeatable by small teams without ATM-level staffing**, leveraging methodology + tooling + AI co-workforce. User's enterprise-architecture background is the backing assumption that this scope is shippable.
   - New **Open Foundational Decision #12**: curation discipline + per-category mod caps.
 - **2026-04-18 — Session 1, pre-interview gap fill:**
   - Added Workstreams **K (Legal, IP & Licensing)**, **L (Security & Privacy)**, **M (Player non-author Experience)**, **N (Performance Budgets & Profiling)**, **O (World & Pack Lifecycle)**.
