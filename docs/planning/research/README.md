@@ -31,12 +31,14 @@ After ratifying assumptions for the loader decision, these reports have deltas:
 | 05 | Minor | Config-drift hashing must include Sinytra + Fabric-mod configs under Sinytra. |
 | 06 | Minor | MCP-over-RCON is now the only MC-integration path; no parallel existing-mod MCP channel. Rec still valid. |
 
-### Re-research sweep (pending / in progress)
+### Re-research sweep reports (2026-04-18, all complete)
 
-- **R1 (follow-up to #02):** Greenfield external-helper architecture without an in-world mod of our own.
-- **R2:** NeoForge 1.21.1 + Sinytra Connector + Mineflayer compat in 2026.
-- **R3:** Guard Villagers capability depth on 1.21.1 NF vs what Recruits would have covered.
-- **R4:** Existing-mod subsystem port audit (Workstream E) — what subsystems from this repo are worth porting OUT into external Joe AI services.
+| # | File | Feeds | Headline |
+|---|---|---|---|
+| 07 | [greenfield-helper-arch.md](07-greenfield-helper-arch.md) | D+E | **Litematica/Syncmatica + BlueMap + prismarine-viewer + discord.js voice + faster-whisper + piper1-gpl**. One ~200-line server-side-only SVC bridge jar required if in-world voice is in scope. |
+| 08 | [nf-sinytra-mineflayer-compat.md](08-nf-sinytra-mineflayer-compat.md) | A+D | **Conditionally viable**. Sinytra 2.0.0-beta.14. **Critical: Lithium via Sinytra NOT supported — use Radium Reforged (NF-native)**. Mineflayer needs `physicsEnabled:false` workaround. Anticheat mods blacklisted. |
+| 09 | [guard-villagers-depth.md](09-guard-villagers-depth.md) | A+D | Guard Villagers 2.4.7 (Mar 2026) on NF 1.21.1 is active. Covers hiring + combat + defense but no squad UI / formations / ranks / banners — Joe AI fills those via peer bots + KubeJS. |
+| 10 | [existing-mod-port-audit.md](10-existing-mod-port-audit.md) | E | Top 5 port priorities: Build Planner, MCP Bridge surface, Batch executor, Undo, Vision. Retire: highlights (→ Litematica), Fabric wiring, in-game setup wizard (→ web app). |
 
 Each report ends with **open questions** — those are queued for the per-workstream Layer-2 deep-dive sessions.
 
