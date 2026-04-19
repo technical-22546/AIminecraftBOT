@@ -18,7 +18,7 @@ _Draft for user review. Generated 2026-04-18 based on locked Layer-1 decisions +
 **Nether/End:** Incendium, Nullscape, Nether Depths Upgrade, YUNG's Better Nether Fortresses
 **Performance:** ModernFix, FerriteCore, ScalableLux, Embeddium, Radium Reforged
 **Compat:** Sinytra Connector, ConnectorExtras
-**Tech tiers:** Powah, Mekanism
+**Tech tiers:** Powah Rearchitected (`6.2.8` NF 1.21.1), Mekanism + Mekanism Generators + Mekanism Tools + Mekanism Additions
 **Rendering:** Iris 1.8.1-neoforge, Distant Horizons 2.3.x
 **Recipe browser:** EMI
 
@@ -370,7 +370,12 @@ Beyond locked Powah + Mekanism and Create ecosystem. Targets: Gilded-Age industr
 **Priority / thematic fit:**
 - **Immersive Engineering** — ? — steampunk/industrial aesthetic, perfect Gilded-Age fit. Highest theme priority.
 - **Immersive Petroleum** — ? — IE addon, oil/fuel supply chains (pairs with Create: Factory Must Grow)
+- **Immersive Geology** — ? — IE addon, overhauls ore distribution + adds geological sampling. Monopoly-theme fit: resource extraction becomes surveyable/predictable, rewarding capital investment in surveying vs random exploration. Depends on IE shipping.
 - **Industrial Foregoing** — ? — general tech workhorse
+
+**Space / rocketry (new per user 2026-04-18):**
+- **Advanced Rocketry** — ? — rockets, orbital stations, additional planets/moons as dimensions, life support. NF 1.21.1 port uncertain (historically Forge-heavy).
+- Alternative if AR doesn't ship NF 1.21.1: **Ad Astra** — ? — modern space mod with better 1.20+/1.21 support, simpler, Moon/Mars/Venus/Mercury/Glacio dimensions. Pairs with Create: Aeronautics thematically (Aeronautics = atmosphere/trade, Ad Astra = orbit/planets).
 
 **Thermal series:**
 - Thermal Foundation — ?
@@ -435,10 +440,10 @@ Count as drafted: ~25 (count drops if AE2/RS/Ender IO conflicts resolved).
 | 11 Difficulty | 5 | 5 *(Apotheosis restored)* |
 | 12 Compat | 9 | ~9 *(Create+TiC bridge added)* |
 | 13 Create addons | 15 | ~15 |
-| 14 Standalone Tech | 25 | ~25 (IE, IF, Thermal, AE2, RFTools, CC: Tweaked, etc.) |
-| **Grand total (estimated)** | **~275** | **~275** |
+| 14 Standalone Tech | 28 | ~28 (IE+IP+IG, IF, Thermal, AE2, RFTools, CC: Tweaked, Advanced Rocketry / Ad Astra, Mekanism-addons included in Tier 0 count) |
+| **Grand total (estimated)** | **~281** | **~281** |
 
-Net from prior version: +25 standalone tech. Still below 500 ceiling; ATM-scale packs commonly run 350–400, leaving capacity for user adds.
+Net from prior version: +3 (Immersive Geology, Advanced Rocketry, Mekanism addons count adjustment). Still below 500 ceiling; ATM-scale packs commonly run 350–400, leaving capacity for user adds.
 
 ---
 
