@@ -13,7 +13,7 @@ _Draft for user review. Generated 2026-04-18 based on locked Layer-1 decisions +
 **Economy core:** Create: Numismatics, SDMShop, Stock Market (kroia), Auction House Plus, FTB Chunks (NF), FTB Teams
 **Create ecosystem:** Create: The Factory Must Grow, Create Crafts & Additions, Create Railways Navigator, Create: Additional Logistics
 **NPC/Empire:** Minecolonies, Minecolonies: War 'N Taxes, Guard Villagers, (CreatureChat OR Player2 AI NPC — TBD v0)
-**ATM:** AllTheModium, Iron Furnaces, Silent Gear *(kept as fallback for tool-tiering; primary is Tetra per 2026-04-18 follow-up, pending NF 1.21.1 verification)*
+**ATM:** AllTheModium, Iron Furnaces, **Silent Gear** *(primary tool-tiering mod; Tetra attempted as swap 2026-04-18 but verified no NF 1.21.1 port — Tetra parked for Day+1 if port lands)*
 **Worldgen primary:** (Middgard port OR Tectonic + Terralith), Lost Cities
 **Nether/End:** Incendium, Nullscape, Nether Depths Upgrade, YUNG's Better Nether Fortresses
 **Performance:** ModernFix, FerriteCore, ScalableLux, Embeddium, Radium Reforged
@@ -300,11 +300,7 @@ If a substitute is wanted later for one of the gameplay-loops the magic tier cov
 
 **Tinkers' Construct line — REMOVED (2026-04-18 compat pass 1 verified no NF 1.21.1 port)**. Silent Gear covered the niche; user 2026-04-18 follow-up prefers **Tetra** as primary tool-tiering mod — modular forging with progression tiers, Victorian-industrial aesthetic fit.
 
-**Tetra family (added per user direction 2026-04-18 follow-up; flag `?` = NF 1.21.1 port verification pending):**
-- Tetra — ? — modular tool/weapon forging, Victorian-industrial aesthetic fit
-- Tetra addons (Extended, Spears, Nova) — ? — expansion content
-
-**Fallback:** if Tetra doesn't have an NF 1.21.1 port, keep **Silent Gear** (already locked Tier 0) as primary tool-tiering mod.
+**Tetra family — VERIFIED NO NF 1.21.1 PORT (2026-04-18).** Official still Forge/NeoForge 1.20.1 only; community fork (TheGrinchOnMath/tetra-neoforge) is exploratory/WIP. **Silent Gear stays primary.** Tetra parked for Day+1 if mickelus tags 1.21.1 or community fork stabilizes.
 
 ---
 
