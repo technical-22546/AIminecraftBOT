@@ -14,3 +14,5 @@ the subagent for its topic, preserving every URL citation and open question.
 | 06 | [control-plane-refs.md](06-control-plane-refs.md) | J | Next.js 16 + shadcn + LangGraph + Redis Streams + Auth.js + discord.js + BlueMap + iframe Pterodactyl. |
 
 Each report ends with **open questions** — those are queued for the per-workstream Layer-2 deep-dive sessions.
+
+See also [ASSUMPTIONS.md](ASSUMPTIONS.md) — the full catalogue of assumptions baked into these reports (user-stated facts, Layer-1 derivations, parent-agent prompt context, subjective agent judgment calls, silent inferences, methodology choices, and deliberate exclusions).
