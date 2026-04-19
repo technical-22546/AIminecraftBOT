@@ -13,7 +13,7 @@ _Draft for user review. Generated 2026-04-18 based on locked Layer-1 decisions +
 **Economy core:** Create: Numismatics, SDMShop, Stock Market (kroia), Auction House Plus, FTB Chunks (NF), FTB Teams
 **Create ecosystem:** Create: The Factory Must Grow, Create Crafts & Additions, Create Railways Navigator, Create: Additional Logistics
 **NPC/Empire:** Minecolonies, Minecolonies: War 'N Taxes, Guard Villagers, (CreatureChat OR Player2 AI NPC — TBD v0)
-**ATM:** AllTheModium, All The Arcanist Gear, Iron Furnaces, Silent Gear
+**ATM:** AllTheModium, Iron Furnaces, Silent Gear *(All The Arcanist Gear removed — magic-coded)*
 **Worldgen primary:** (Middgard port OR Tectonic + Terralith), Lost Cities
 **Nether/End:** Incendium, Nullscape, Nether Depths Upgrade, YUNG's Better Nether Fortresses
 **Performance:** ModernFix, FerriteCore, ScalableLux, Embeddium, Radium Reforged
@@ -236,21 +236,17 @@ Supports Minecolonies demand/supply + monopoly commodity layer.
 
 ---
 
-## Tier 8 — Magic (light, theme-appropriate, ~10)
+## Tier 8 — Magic — REMOVED PER USER DIRECTION (2026-04-18)
 
-Gilded-Age / parlor-magic tone preferred. Heavy ceremonial magic mods skipped.
+User policy: **absolutely no magic mods.** Tier deleted in entirety.
 
-- Ars Nouveau — spell-crafting (research tree fits "tycoon of mystic arts")
-- Ars Nouveau Addons (Ars Elemental / Ars Creo / etc.) — ?
-- Occultism — demons + spirits (parlor-magic fit)
-- Eidolon: Repraised — black magic (Victorian seance vibe)
-- Mahou Tsukai — ?
-- Irons Spells 'n Spellbooks — spell mod
-- Irons Spells Extras — ?
-- Enchanted: Wands & Tomes — Arcanist Gear companion
-- Apotheosis — attribute system + bosses (keep restrained)
+Magic-adjacent items also removed from other tiers:
+- Tier 0: **All The Arcanist Gear** (ATM-tier spellbooks)
+- Tier 11: **Apotheosis** (attribute/affix/boss mod with enchanting hooks — see Apotheosis-stripped-of-magic note in Tier 11 below)
+- Tier 12: **Create + Ars Nouveau (Ars Creo)** bridge
+- Tier 12: **Minecolonies + Ars Nouveau** bridge
 
-Skip: Ars Magica, Mana and Artifice base, Blood Magic (too dark for family)
+If a substitute is wanted later for one of the gameplay-loops the magic tier covered (e.g., late-game progression after industry), it must be a non-magic alternative. Any spell/wand/altar/familiar/ritual mod is out.
 
 ---
 
@@ -303,17 +299,16 @@ Skip: Ars Magica, Mana and Artifice base, Blood Magic (too dark for family)
 
 ---
 
-## Tier 11 — Difficulty modifiers (~5, per original monopoly-vision)
+## Tier 11 — Difficulty modifiers (~4, per original monopoly-vision)
 
-Lighter-touch given consensual PvP + family SMP.
+Lighter-touch given consensual PvP + family SMP. **Apotheosis removed — magic-coded enchant hooks conflict with no-magic policy.**
 
 - Scaling Health — health scales with world difficulty
-- Apotheosis (already listed — bosses/affixes)
 - Regional Difficulty+ — custom difficulty zones
 - Hordes / Hostile Night — ? periodic sieges to threaten unclaimed territory
 - In Control! — mob-spawn fine-tuning
 
-Skip: hardcore/thirst/temperature unless user explicitly wants survival-hard mode.
+Skip: hardcore/thirst/temperature unless user explicitly wants survival-hard mode. Skip: Apotheosis, Reliquary, Ice and Fire, Quark's enchanting features.
 
 ---
 
@@ -321,11 +316,11 @@ Skip: hardcore/thirst/temperature unless user explicitly wants survival-hard mod
 
 - Farmer's Delight + Create crossover — ?
 - Alex's Mobs + Farmer's Delight Compat — ?
-- Create + Ars Nouveau — Ars Creo
+- ~~Create + Ars Nouveau — Ars Creo~~ (removed: no magic)
 - Create + Tinkers' — skip (Tinkers not chosen)
 - Create + Mekanism recipes — pack-level KubeJS (no shipping mod)
 - Macaw's Every Compat
-- Minecolonies + Ars Nouveau — ?
+- ~~Minecolonies + Ars Nouveau~~ (removed: no magic)
 - Connector bridges for specific Fabric content — as-needed
 - JEI → EMI bridges — `emi-loot`, etc.
 - Custom "Create Remastered Bridges" KubeJS script pack — ours
@@ -359,7 +354,7 @@ Beyond what's locked (Factory Must Grow, C&A, Railways Navigator, Additional Log
 
 | Tier | Budget | Drafted |
 |---|---|---|
-| 0 Locked | — | 37 |
+| 0 Locked | — | 36 *(All The Arcanist Gear removed)* |
 | 1 Libraries | 15 | 15 |
 | 2 Decoration | 40 | ~40 |
 | 3 QoL | 25 | ~25 |
@@ -367,15 +362,15 @@ Beyond what's locked (Factory Must Grow, C&A, Railways Navigator, Additional Log
 | 5 Food | 15 | ~15 |
 | 6 Storage | 10 | ~10 |
 | 7 Adventure | 20 | ~20 |
-| 8 Magic | 10 | ~10 |
+| 8 Magic | **0** | **REMOVED** |
 | 9 Aesthetic | 20 | ~20 |
 | 10 Utility | 18 | ~18 |
-| 11 Difficulty | 5 | 5 |
-| 12 Compat | 10 | ~10 |
+| 11 Difficulty | 4 | 4 *(Apotheosis removed)* |
+| 12 Compat | 8 | ~8 *(Ars Nouveau bridges removed)* |
 | 13 Create addons | 15 | ~15 |
-| **Grand total (estimated)** | **~253** | **~255** |
+| **Grand total (estimated)** | **~241** | **~241** |
 
-Below the 500 ceiling — intentional. ATM-scale packs commonly run 350–400. Add capacity for category expansion after user review.
+Magic-tier removal cut ~14 mods. Below the 500 ceiling — intentional. ATM-scale packs commonly run 350–400. Add capacity for category expansion after user review.
 
 ---
 
