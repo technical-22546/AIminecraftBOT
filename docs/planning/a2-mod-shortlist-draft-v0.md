@@ -242,9 +242,10 @@ User policy: **absolutely no magic mods.** Tier deleted in entirety.
 
 Magic-adjacent items also removed from other tiers:
 - Tier 0: **All The Arcanist Gear** (ATM-tier spellbooks)
-- Tier 11: **Apotheosis** (attribute/affix/boss mod with enchanting hooks — see Apotheosis-stripped-of-magic note in Tier 11 below)
 - Tier 12: **Create + Ars Nouveau (Ars Creo)** bridge
 - Tier 12: **Minecolonies + Ars Nouveau** bridge
+
+**Apotheosis kept** (per user direction 2026-04-18 follow-up) — treated as attribute/affix/boss gameplay, not magic. Enchantment-module features may be configurable-off if desired.
 
 If a substitute is wanted later for one of the gameplay-loops the magic tier covered (e.g., late-game progression after industry), it must be a non-magic alternative. Any spell/wand/altar/familiar/ritual mod is out.
 
@@ -276,7 +277,7 @@ If a substitute is wanted later for one of the gameplay-loops the magic tier cov
 
 ---
 
-## Tier 10 — Utility / Tools / Transport (~18)
+## Tier 10 — Utility / Tools / Transport (~25)
 
 - Carry On — pick up chests/blocks
 - Chisels & Bits — fine-grained blocks
@@ -297,18 +298,30 @@ If a substitute is wanted later for one of the gameplay-loops the magic tier cov
 - Chisel — stonework variants
 - Decorative Barrels — ?
 
+**Tinkers' Construct line** (added per user direction 2026-04-18 follow-up; flag `?` = NF 1.21.1 port uncertain from memory):
+- Tinkers' Construct — ? — smeltery, modular tool/weapon crafting
+- Tinkers' Rapier — ? — weapon expansion
+- Tinkers' Tool Leveling — ? — XP-based tool upgrades
+- Plustic / TiC Add-ons — ? — additional materials / parts
+- Construct's Armory — ? — modular armor system using TiC
+- Pane in the Glass — ? — TiC glass panel variants (if separate mod)
+- ExtraTiC — ? — classic expansion (version-gated)
+
+If TiC doesn't have a stable NF 1.21.1 port, fallback: **Silent Gear** (already in Tier 0 locked) covers similar ground as TiC's modular weaponry.
+
 ---
 
-## Tier 11 — Difficulty modifiers (~4, per original monopoly-vision)
+## Tier 11 — Difficulty modifiers (~5, per original monopoly-vision)
 
-Lighter-touch given consensual PvP + family SMP. **Apotheosis removed — magic-coded enchant hooks conflict with no-magic policy.**
+Lighter-touch given consensual PvP + family SMP.
 
 - Scaling Health — health scales with world difficulty
+- Apotheosis — attribute system, affixes, boss encounters (non-magic gameplay; enchantment-module configurable off if it creeps toward magic)
 - Regional Difficulty+ — custom difficulty zones
 - Hordes / Hostile Night — ? periodic sieges to threaten unclaimed territory
 - In Control! — mob-spawn fine-tuning
 
-Skip: hardcore/thirst/temperature unless user explicitly wants survival-hard mode. Skip: Apotheosis, Reliquary, Ice and Fire, Quark's enchanting features.
+Skip: hardcore/thirst/temperature unless user explicitly wants survival-hard mode. Skip: Reliquary, Ice and Fire.
 
 ---
 
@@ -317,7 +330,7 @@ Skip: hardcore/thirst/temperature unless user explicitly wants survival-hard mod
 - Farmer's Delight + Create crossover — ?
 - Alex's Mobs + Farmer's Delight Compat — ?
 - ~~Create + Ars Nouveau — Ars Creo~~ (removed: no magic)
-- Create + Tinkers' — skip (Tinkers not chosen)
+- Create + Tinkers' — Create Tweaked Recipes / CreateAdditions + TiC compat (if TiC ships on NF 1.21.1)
 - Create + Mekanism recipes — pack-level KubeJS (no shipping mod)
 - Macaw's Every Compat
 - ~~Minecolonies + Ars Nouveau~~ (removed: no magic)
@@ -364,13 +377,13 @@ Beyond what's locked (Factory Must Grow, C&A, Railways Navigator, Additional Log
 | 7 Adventure | 20 | ~20 |
 | 8 Magic | **0** | **REMOVED** |
 | 9 Aesthetic | 20 | ~20 |
-| 10 Utility | 18 | ~18 |
-| 11 Difficulty | 4 | 4 *(Apotheosis removed)* |
-| 12 Compat | 8 | ~8 *(Ars Nouveau bridges removed)* |
+| 10 Utility | 25 | ~25 *(+ Tinkers' line, +7)* |
+| 11 Difficulty | 5 | 5 *(Apotheosis restored)* |
+| 12 Compat | 9 | ~9 *(Create+TiC bridge added)* |
 | 13 Create addons | 15 | ~15 |
-| **Grand total (estimated)** | **~241** | **~241** |
+| **Grand total (estimated)** | **~250** | **~250** |
 
-Magic-tier removal cut ~14 mods. Below the 500 ceiling — intentional. ATM-scale packs commonly run 350–400. Add capacity for category expansion after user review.
+Net from prior version: magic cut ~14, Tinkers' + Apotheosis restored ~8. Still below 500 ceiling; ATM-scale packs commonly run 350–400, leaving capacity for user adds.
 
 ---
 

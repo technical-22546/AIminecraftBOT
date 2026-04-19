@@ -1011,8 +1011,10 @@ Append-only record of vision updates from the user.
 - **2026-04-18 — Session 1, commercial-safety filter removed:**
   - Explicit policy: research, tool selection, and design choices **must not pass on better feature-covering options because of commercial redistribution or monetization concerns**. Features beat commercial-safety. ARR mod licenses, provider-API commercial restrictions, and similar are not blockers.
   - Workstream K narrowed to **personal-use + friend-group distribution compliance only**. Trademark audit, hosted-content takedown, and commercial-redistribution matrix all dropped (deferred to Day+100 or retired).
-- **2026-04-18 — Session 1, no-magic policy:**
-  - User policy: **absolutely no magic mods.** No spell/wand/altar/familiar/ritual/enchant-extension mods. Tier 8 removed entirely from A-2 strawman. Cross-tier removals: All The Arcanist Gear (ATM addon), Apotheosis (magic-coded enchant hooks), Ars Nouveau bridges (Ars Creo, Minecolonies-AN). Net cut: ~14 mods. If a magic-tier gameplay loop needs replacement (late-game progression after industry), it must be a non-magic alternative.
+- **2026-04-18 — Session 1, no-magic policy + follow-ups:**
+  - User policy: **absolutely no magic mods.** No spell/wand/altar/familiar/ritual/enchant-extension mods. Tier 8 removed entirely from A-2 strawman. Cross-tier removals: All The Arcanist Gear (ATM addon), Ars Nouveau bridges (Ars Creo, Minecolonies-AN). Apotheosis initially removed, then **restored** (per follow-up) — treated as attribute/affix/boss gameplay, not magic; enchantment module configurable off if it drifts toward magic.
+  - **Tinkers' Construct line added** to Tier 10 Utility per user direction (flag `?` — NF 1.21.1 port uncertain from memory; fallback Silent Gear covers similar ground).
+  - Net strawman change: ~241 → ~250.
 
 - **2026-04-18 — Session 1, monopoly-pivot + Section C/D/Fresh walkthrough (35 + 5 + 4 decisions locked, fourth research sweep):**
 
