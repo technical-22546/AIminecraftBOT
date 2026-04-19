@@ -4,6 +4,8 @@ _Draft for user review. Generated 2026-04-18 based on locked Layer-1 decisions +
 
 **Review instructions:** strike entries you don't want, add missing favorites, flag uncertainty. Final shortlist locked after user review pass + per-category v0 compat testing.
 
+**Strategic pivot (2026-04-18 follow-up):** **Use ATM10 as the blueprint.** Rather than build bottom-up from this strawman, start from ATM10's NF 1.21.1 mod list, strike magic + Mineflayer-breaking + theme-incompatible mods, then overlay the monopoly-specific custom layer (Minecolonies: War 'N Taxes, SDMShop, Create: Aeronautics, Create Railways Navigator, Tectonic+Terralith, Guard Villagers, Joe AI external stack, etc.). This strawman becomes the **monopoly-overlay reference**, not the full pack list.
+
 ---
 
 ## Tier 0 — Locked (previously approved, ~35 mods)
@@ -410,6 +412,12 @@ Beyond locked Powah + Mekanism and Create ecosystem. Targets: Gilded-Age industr
 - Project E / ProjectE — infinite EMC trivializes economy, anti-monopoly-theme
 - Tech Reborn — largely redundant with Mekanism on NeoForge
 - GregTech Community Edition — too opinionated, conflicts with Create as pack anchor
+
+**Additions per user 2026-04-18 follow-up (pending NF 1.21.1 verification):**
+- **Modern Industrialization + addons** — ? — industrial tech mod with strong Gilded-Age aesthetic (steam → oil → nuclear → modular machines). Originally Fabric; NF 1.21.1 port TBD.
+- **Integrated Dynamics + addon suite** (Integrated Tunnels, Integrated Terminals, Integrated Crafting, Integrated Scripting) — ? — data-driven logic networks, programmable automation
+- **Extreme Reactors** — ? — already noted as swap for Bigger Reactors; confirming NF 1.21.1 shipping
+- **Easy Villagers** (by henkelmax) — ? — carry/place villagers in jars; major Minecolonies QoL for moving citizens between colonies
 
 Balance-adjacent rec: pick one of AE2 or Refined Storage, not both. AE2 recommended for monopoly-theme (complexity = gate, fits capital-investment progression). Ender IO's storage overlaps with both; include only if its tech features are wanted.
 

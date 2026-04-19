@@ -1011,6 +1011,10 @@ Append-only record of vision updates from the user.
 - **2026-04-18 — Session 1, commercial-safety filter removed:**
   - Explicit policy: research, tool selection, and design choices **must not pass on better feature-covering options because of commercial redistribution or monetization concerns**. Features beat commercial-safety. ARR mod licenses, provider-API commercial restrictions, and similar are not blockers.
   - Workstream K narrowed to **personal-use + friend-group distribution compliance only**. Trademark audit, hosted-content takedown, and commercial-redistribution matrix all dropped (deferred to Day+100 or retired).
+- **2026-04-18 — Session 1, ATM10-blueprint pivot + MI + Integrated Dynamics + Easy Villagers additions:**
+  - **Strategic pivot:** use **ATM10 as the shortlist blueprint** rather than building bottom-up from the strawman. Start from ATM10's NF 1.21.1 mod list, strike magic + Mineflayer-breaking + theme-incompatible mods, overlay the monopoly-specific custom layer. Cuts authoring load massively; inherits tested mod combinations. Strawman becomes the monopoly-overlay reference.
+  - **Additions under verification:** Modern Industrialization + addons (Gilded-Age industrial fit), Integrated Dynamics + addon suite (programmable automation), Extreme Reactors (confirming — already swap for Bigger Reactors), Easy Villagers (Minecolonies QoL). Verification agent running (ATM10 list + 4 mod verifications).
+
 - **2026-04-18 — Session 1, Tetra swap attempted + reverted:**
   - User requested Tetra as primary tool-tiering mod (Victorian-industrial aesthetic fit) over Silent Gear. Verification agent confirmed **no NF 1.21.1 port exists** — Tetra's official latest is 1.20.1 (Apr 2026), only exploratory community fork on 1.21.1 (`TheGrinchOnMath/tetra-neoforge`, not production-ready).
   - **Revert: Silent Gear stays primary.** Tetra parked for Day+1 if mickelus tags 1.21.1 or the community fork stabilizes.
