@@ -13,7 +13,7 @@ _Draft for user review. Generated 2026-04-18 based on locked Layer-1 decisions +
 **Economy core:** Create: Numismatics, SDMShop, Stock Market (kroia), Auction House Plus, FTB Chunks (NF), FTB Teams
 **Create ecosystem:** Create: The Factory Must Grow, Create Crafts & Additions, Create Railways Navigator, Create: Additional Logistics
 **NPC/Empire:** Minecolonies, Minecolonies: War 'N Taxes, Guard Villagers, (CreatureChat OR Player2 AI NPC — TBD v0)
-**ATM:** AllTheModium, Iron Furnaces, Silent Gear *(All The Arcanist Gear removed — magic-coded)*
+**ATM:** AllTheModium, Iron Furnaces, Silent Gear *(kept as fallback for tool-tiering; primary is Tetra per 2026-04-18 follow-up, pending NF 1.21.1 verification)*
 **Worldgen primary:** (Middgard port OR Tectonic + Terralith), Lost Cities
 **Nether/End:** Incendium, Nullscape, Nether Depths Upgrade, YUNG's Better Nether Fortresses
 **Performance:** ModernFix, FerriteCore, ScalableLux, Embeddium, Radium Reforged
@@ -298,16 +298,13 @@ If a substitute is wanted later for one of the gameplay-loops the magic tier cov
 - Chisel — stonework variants
 - Decorative Barrels — ?
 
-**Tinkers' Construct line** (added per user direction 2026-04-18 follow-up; flag `?` = NF 1.21.1 port uncertain from memory):
-- Tinkers' Construct — ? — smeltery, modular tool/weapon crafting
-- Tinkers' Rapier — ? — weapon expansion
-- Tinkers' Tool Leveling — ? — XP-based tool upgrades
-- Plustic / TiC Add-ons — ? — additional materials / parts
-- Construct's Armory — ? — modular armor system using TiC
-- Pane in the Glass — ? — TiC glass panel variants (if separate mod)
-- ExtraTiC — ? — classic expansion (version-gated)
+**Tinkers' Construct line — REMOVED (2026-04-18 compat pass 1 verified no NF 1.21.1 port)**. Silent Gear covered the niche; user 2026-04-18 follow-up prefers **Tetra** as primary tool-tiering mod — modular forging with progression tiers, Victorian-industrial aesthetic fit.
 
-If TiC doesn't have a stable NF 1.21.1 port, fallback: **Silent Gear** (already in Tier 0 locked) covers similar ground as TiC's modular weaponry.
+**Tetra family (added per user direction 2026-04-18 follow-up; flag `?` = NF 1.21.1 port verification pending):**
+- Tetra — ? — modular tool/weapon forging, Victorian-industrial aesthetic fit
+- Tetra addons (Extended, Spears, Nova) — ? — expansion content
+
+**Fallback:** if Tetra doesn't have an NF 1.21.1 port, keep **Silent Gear** (already locked Tier 0) as primary tool-tiering mod.
 
 ---
 
