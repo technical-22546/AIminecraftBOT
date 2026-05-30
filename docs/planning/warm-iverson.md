@@ -1021,6 +1021,12 @@ Append-only record of vision updates from the user.
   - **VS2 caveat RESOLVED (R-AeroDeps verified 2026-04-18):** **VS2 is NOT a dep of Create: Aeronautics 1.0.2.** Aeronautics depends on **Sable** (Create-native physics lib by Creators-of-Aeronautics) + Create. R3 was correct; R-ATM10 confused Aeronautics with Create: Interactive (the VS2-dep mod, which is dropped). **Do not ship VS2.** Add **Sable** to required deps. Archive: `docs/planning/research/16-aeronautics-deps-verify.md`.
   - Full archive: `docs/planning/research/15-atm10-blueprint.md`.
 
+- **2026-04-18 — Session 1, D parked + concurrent-bot constraint:**
+  - Workstream D (AI Agent Architecture) **parked** — user's hardware testing shows they can adequately support **only 1 gaming AI (Mineflayer peer-bot client) at a time** right now.
+  - **D.1 revised:** 1 peer-bot Mineflayer client active at any given time + helpers (Winston / Ophelia / Reginald / Juno) stay concurrent as disembodied service agents (no Mineflayer body, no "gaming AI" capacity consumed). Total LLM inference: 1 peer + ~4 helpers = 5 streams on DGX Spark, fits 70B + vLLM batching.
+  - **Monopoly-theme implication** (for resolution when D unparks): "3 rival empires racing" can't be concurrent; likely path is **peer-bot persona rotation** (Iverson primary, Vanderbilt cycles in for logistics-heavy sessions, Cassandra for exploration phases) with helpers carrying competitive-economic pressure between peer sessions via Stock Market + admin shop dynamics. Alternative: peer = partner/rival to player, helpers = AI economy participants.
+  - D phase plan (Phase 1–6 walkthrough drafted in this session, archived in conversation) stands for later resumption.
+
 - **2026-04-18 — Session 1, A-2 mod shortlist v1 LOCKED via 11-group blueprint walk:**
   - Walked ATM10's ~450-mod baseline one category at a time; struck magic + theme-conflict + Mineflayer-hostile + redundant; overlaid Create Remastered's monopoly-specific custom layer. **Final tally: ~314 mods.** Below the 500 ceiling, above ATM-conventional 350 floor — focused, not bloated.
   - **Net per group:** Tech 47 / Storage 26 / Worldgen 39 / Magic 4 / Colony 11 / Agriculture 20 / Building 31 / Adventure 11 / QoL 42 / Performance 55 / Scripting 28.
