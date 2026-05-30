@@ -43,6 +43,7 @@ After ratifying assumptions for the loader decision, these reports have deltas:
 | 12 | [economy-npc-ai-mods.md](12-economy-npc-ai-mods.md) | A+D+G | Monopoly stack: Minecolonies + War 'N Taxes + Create: Numismatics + SDMShop + Stock Market + Auction House Plus + FTB Chunks + Mindcraft-CE. Skip: AW3, Create: Connected, OPaC. |
 | 13 | [atm-verify.md](13-atm-verify.md) | A+B+G | AllTheModium 3.0.0 native NF 1.21.1, no Sinytra needed. Tier-gate: Overworld → Nether Vibranium → The Other → The Beyond. Disable DH for The Beyond. |
 | 14 | [nether-end-overhauls.md](14-nether-end-overhauls.md) | A | Lock **Incendium 5.4.12 + Nullscape 1.2.19**. Preserves vanilla crimson/warped → ATM Vibranium + Piglich intact. Skip BetterNether (conflict) + Stellarity (overlap). |
+| 15 | [atm10-blueprint.md](15-atm10-blueprint.md) | A+G | **Use ATM10 (~450 mods) as blueprint**, strike magic + off-theme dims + redundant, add monopoly layer. MI v2.4.2 / Integrated Dynamics suite / Extreme Reactors 2.4.28 / Easy Villagers 1.21.1-1.1.39 all verified shipping. Final est. ~470 mods. |
 
 Each report ends with **open questions** — those are queued for the per-workstream Layer-2 deep-dive sessions.
 
