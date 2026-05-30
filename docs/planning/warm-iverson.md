@@ -1021,6 +1021,13 @@ Append-only record of vision updates from the user.
   - **VS2 caveat RESOLVED (R-AeroDeps verified 2026-04-18):** **VS2 is NOT a dep of Create: Aeronautics 1.0.2.** Aeronautics depends on **Sable** (Create-native physics lib by Creators-of-Aeronautics) + Create. R3 was correct; R-ATM10 confused Aeronautics with Create: Interactive (the VS2-dep mod, which is dropped). **Do not ship VS2.** Add **Sable** to required deps. Archive: `docs/planning/research/16-aeronautics-deps-verify.md`.
   - Full archive: `docs/planning/research/15-atm10-blueprint.md`.
 
+- **2026-04-18 — Session 1, A-2 mod shortlist v1 LOCKED via 11-group blueprint walk:**
+  - Walked ATM10's ~450-mod baseline one category at a time; struck magic + theme-conflict + Mineflayer-hostile + redundant; overlaid Create Remastered's monopoly-specific custom layer. **Final tally: ~314 mods.** Below the 500 ceiling, above ATM-conventional 350 floor — focused, not bloated.
+  - **Net per group:** Tech 47 / Storage 26 / Worldgen 39 / Magic 4 / Colony 11 / Agriculture 20 / Building 31 / Adventure 11 / QoL 42 / Performance 55 / Scripting 28.
+  - **Key user follow-ups during walk:** restored 4 dims (Aether, Undergarden, Eternal Starlight, Bumblezone) + OTBWG + OTYG + RU; restored Apothic Enchanting + Gateways + HNN + Draconic Evolution + L_Ender's Cataclysm under refined "RPG/loot OK, spell-casting OUT" rule. Dropped Corail Tombstone + Cat Jammies + Mystical Agriculture trio + SereneSeasons + Agricarnation. Swap Pickup Notifier → Loot Journal + Obscure. Pick Xaero's map pair over JourneyMap.
+  - Full archive: `docs/planning/a2-mod-shortlist-v1-locked.md`. Strawman v0 + Compat Pass 1 + ATM10 blueprint research remain as upstream artifacts.
+  - **A-2 complete.** Outstanding for v0: Loot Journal/Obscure NF 1.21.1 verify; FTB JEI Extras EMI port; Just Enough X family EMI compat; Middgard decompile-port (your task); AlmostUnified config tuning. Pin/config/tune actions catalogued in the v1 file.
+
 - **2026-04-18 — Session 1, Tetra swap attempted + reverted:**
   - User requested Tetra as primary tool-tiering mod (Victorian-industrial aesthetic fit) over Silent Gear. Verification agent confirmed **no NF 1.21.1 port exists** — Tetra's official latest is 1.20.1 (Apr 2026), only exploratory community fork on 1.21.1 (`TheGrinchOnMath/tetra-neoforge`, not production-ready).
   - **Revert: Silent Gear stays primary.** Tetra parked for Day+1 if mickelus tags 1.21.1 or the community fork stabilizes.
