@@ -1021,6 +1021,20 @@ Append-only record of vision updates from the user.
   - **VS2 caveat RESOLVED (R-AeroDeps verified 2026-04-18):** **VS2 is NOT a dep of Create: Aeronautics 1.0.2.** Aeronautics depends on **Sable** (Create-native physics lib by Creators-of-Aeronautics) + Create. R3 was correct; R-ATM10 confused Aeronautics with Create: Interactive (the VS2-dep mod, which is dropped). **Do not ship VS2.** Add **Sable** to required deps. Archive: `docs/planning/research/16-aeronautics-deps-verify.md`.
   - Full archive: `docs/planning/research/15-atm10-blueprint.md`.
 
+- **2026-04-18 — Session 1, Tier 1 BLOCKING decisions locked + pack scaffold created:**
+  - **Additive ores:** Immersive Ores IN (Vibranium tag clash with ATM Vibranium → resolve via KubeJS tag remap in v0; do not pre-emptively datapack-fix)
+  - **Manifest format:** CurseForge `manifest.json`
+  - **Pterodactyl egg:** vanilla NeoForge (Sinytra Connector is a regular mod, no egg-special-casing needed)
+  - **JVM heap:** **24 GB G1GC + Aikar's flags** (declined 32 GB — past 24 GB on G1GC = diminishing returns; ZGC scales higher but trades well-trodden path for less-tested one)
+  - **server.properties:** view-distance dynamic (start 12), simulation-distance 5, max-players 8, white-list enabled, PvP disabled at server-level (consensual via Minecolonies alliance + War 'N Taxes per C5.3)
+  - **Whitelist:** enabled; populated during setup
+  - **Initial world seed:** `5252266024153750674` (Sbeev's pack seed)
+  - **Group 9 batch verify resolved:** Loot Journal 6.2.1 (Obscuria) + Fragmentum 2.1.1 SHIP; FTB JEI Extras DROP (wrong-direction bridge); Just Enough Archaeology + Breeding SHIP native EMI; JEMM 7.15 SHIP with EMI click-bug limitation; JEP 4.0.4 SHIP via EMI-compat layer
+  - **Middgard re-verify:** v1.1 shipped May 8 2026, still Forge 1.20.1 only; **source IS on GitHub** at `SbeevYT/Midgard-0.2` (correcting prior "no repo" verification — fork directly, no decompilation needed); deps for port = Tectonic ✓ + OTTYG ✓ + Treeplacer (NF 1.21.1 TBD); Terralith biome-tag conflict added to port checklist
+  - **`pack/` scaffold created in repo:** README, server.properties, startup-flags.txt (Aikar's flags for 24GB), whitelist.json + ops.json placeholders, notes/PIN_VERSIONS.md (mandatory version pins from Compat Pass 1), notes/CONFIG_TUNES.md (Tier 2 deferred queue), notes/ASSEMBLY_CHECKLIST.md (step-by-step from "decisions locked" to "play-testable")
+  - **Estimated time to first play-test: 1-2 days of focused work.** Most risk is Phase 1 (manifest assembly) — a single mod-pair conflict can eat hours to debug.
+  - **A workstream substantially complete pending play-test validation.** E, G, B, J unblock once first play-test passes.
+
 - **2026-04-18 — Session 1, D parked + concurrent-bot constraint:**
   - Workstream D (AI Agent Architecture) **parked** — user's hardware testing shows they can adequately support **only 1 gaming AI (Mineflayer peer-bot client) at a time** right now.
   - **D.1 revised:** 1 peer-bot Mineflayer client active at any given time + helpers (Winston / Ophelia / Reginald / Juno) stay concurrent as disembodied service agents (no Mineflayer body, no "gaming AI" capacity consumed). Total LLM inference: 1 peer + ~4 helpers = 5 streams on DGX Spark, fits 70B + vLLM batching.
