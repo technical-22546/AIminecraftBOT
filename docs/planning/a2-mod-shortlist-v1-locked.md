@@ -61,7 +61,7 @@ Walk ATM10's ~450-mod NF 1.21.1 list one category at a time → strike magic + t
 
 - **From ATM10 (kept ~30):** Jade; Just Enough Archaeology + Breeding + Mek Multiblocks + Professions *(verify EMI compat)*; Just Zoom; Smithing Template Viewer; GuideME; Patchouli; Modonomicon; Waystones (cross-tier); Explorer's Compass + Nature's Compass; Oracle Index + Almanac Lib + Akashic Tome; Controlling (18.0.x); Inventory Essentials + Inventory Tweaks - ReFoxed + Mouse Tweaks + Crafting Tweaks + Crafting on a stick; KeyBind Bundles + KeybindsPurger + Rebind Narrator; Dark Mode Everywhere; Legendary Tooltips + Enchantment Descriptions + Searchables; AppleSkin *(PIN 3.0.5)*; Polymorph; Clumps; AttributeFix; Better Advancements + Toast Control; Simple Backups + Crash Assistant + Crash Utilities; FancyMenu + PackMenu + Drippy Loading Screen; BWNCR; Hey Berry SHUT UP + Let Me Despawn + Fireproof Boats; NetherPortalFix + Get It Together Drops!; Measurements + Prism.
 - **Dropped from ATM10:** JourneyMap *(picked Xaero's pair instead)*; JEI *(swapped to EMI)*; FTB JEI Extras *(orphaned without JEI; verify EMI port)*.
-- **Added:** **Xaero's Minimap + Xaero's World Map** (25.3.5); EMI + EMI Loot + EMI Ores; Jade Addons NF (6.1.0); BBOR; SmartBrainLib; Chunk Pregenerator (4.4.5.1); Advancements Reloaded + Advancement Plaques; ScreenshotToClipboard; Visual Workbench (v21.1.0); Catalogue; Configured *(NOT Mod Menu — Fabric-only)*; **Loot Journal + Obscure** *(per follow-up, swap for Pickup Notifier)*.
+- **Added:** **Xaero's Minimap + Xaero's World Map** (25.3.5); EMI + EMI Loot + EMI Ores; Jade Addons NF (6.1.0); BBOR; SmartBrainLib; Chunk Pregenerator (4.4.5.1); Advancements Reloaded + Advancement Plaques; ScreenshotToClipboard; Visual Workbench (v21.1.0); Catalogue; Configured *(NOT Mod Menu — Fabric-only)*; **Loot Journal 6.2.1 + Fragmentum 2.1.1** *(Group 9 batch verify: Loot Journal author = Obscuria; Fragmentum is the rebranded Obscure-API successor and required dep; replaces "Obscure" placeholder)*.
 
 ### Group 10 — Performance / Libs / Shaders (~55 mods)
 
@@ -96,12 +96,13 @@ Walk ATM10's ~450-mod NF 1.21.1 list one category at a time → strike magic + t
 
 ## Outstanding verifications for v0
 
-- Loot Journal + Obscure NF 1.21.1 versions (Group 9 swap)
-- FTB JEI Extras EMI port availability
-- Just Enough X family (Archaeology/Breeding/Mek/Professions) EMI compat
+- ~~Loot Journal + Obscure NF 1.21.1 versions~~ → ✓ resolved (Loot Journal 6.2.1 + Fragmentum 2.1.1)
+- ~~FTB JEI Extras EMI port availability~~ → ✓ resolved (DROP — wrong-direction bridge)
+- ~~Just Enough X family EMI compat~~ → ✓ resolved (JEA + JEBr native EMI = SHIP; JEMM = MAYBE click-bug; JEP = MAYBE stale)
+- **Middgard port (your task)** — source IS on GitHub at `SbeevYT/Midgard-0.2` (correcting prior "no repo" verify); v1.1 shipped May 8, 2026, still 1.20.1 Forge. Deps: Tectonic ✓, OTTYG ✓, Treeplacer (NF 1.21.1 status TBD)
 - ATM10 Lithostitched / Terralith specific version
-- Middgard decompile-port (your task)
 - AlmostUnified config tuning to preserve ATM-material variety
+- **Decisions still open:** JEMM ship-with-limitation vs drop; JEP ship vs drop; max-players + JVM heap + initial seed
 
 ## Outstanding pin / config / tune actions
 
